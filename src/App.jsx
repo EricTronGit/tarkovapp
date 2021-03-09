@@ -20,7 +20,7 @@ function App() {
             </article>
          </section>
        </main>
-       <footer>copyright ErryonTV with Ghostwake version 0.0.1 ALPHA</footer>    
+       <footer><p className="textFooter">copyright ErryonTV with Ghostwake version 0.0.1 ALPHA</p></footer>    
     </div>
   );
 }

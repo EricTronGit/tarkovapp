@@ -3,24 +3,31 @@ import Button from 'react-bootstrap/Button';
 
 
 class Sentences extends React.Component {
-    
-    componentDidMount(){ 
-    }
-    
 
     constructor(props) {
       super(props);
       this.state = {
         sentenceNow:"Cliquez sur ROLL pour lancer l'aléatoire",
-        sentencesArray:["Je suis la phrase 1","Je suis la phrase 2","Je suis la phrase 3","Je suis la phrase 4"]
+        sentencesArrayBeginning:["Lance une carte ","Pars sur la carte ","Rends toi sur "],
+        arrayMaps:["Echangeur","Douanes","Labs","Base militaire","Litorral","Usine","Bois"],
+        sentencesArrayMiddle:[" avec ", " en t'équipant d'"],
+        arrayWeapons:["une AK47","une AKM","un Hunter","un SKS","une M4A1","une HK 416"]
       }
       
     }
 
 
     rollSentence(e) {
-        const maVar = this.state.sentencesArray[Math.floor(Math.random() * this.state.sentencesArray.length)];
-        this.setState({...this.state,sentenceNow:maVar})
+       //TODO const maVar = this.state.sentencesArray[Math.floor(Math.random() * this.state.sentencesArray.length)];
+        const resultSentence = this.createSentence();
+        this.setState({...this.state,sentenceNow:resultSentence})
+    }
+
+    createSentence(){
+        return this.state.sentencesArrayBeginning[Math.floor(Math.random() * this.state.sentencesArrayBeginning.length)] + 
+                this.state.arrayMaps[Math.floor(Math.random() * this.state.arrayMaps.length)] +
+                this.state.sentencesArrayMiddle[Math.floor(Math.random() * this.state.sentencesArrayMiddle.length)] +
+                this.state.arrayWeapons[Math.floor(Math.random() * this.state.arrayWeapons.length)];
     }
 
     render() { 
