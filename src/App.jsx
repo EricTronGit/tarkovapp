@@ -1,6 +1,8 @@
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import Sentences from './components/sentence/sentences.jsx';
+import { Col, Row } from 'react-bootstrap';
+import image from './asset/test.png'
 
 
 function App() {
@@ -12,6 +14,13 @@ function App() {
          </nav> 
        </header>
        <main>
+       <section>
+            <article>
+              <div>
+                <img src={image} />
+              </div>
+            </article>
+         </section>
          <section>
             <article>
               <div>
@@ -20,7 +29,13 @@ function App() {
             </article>
          </section>
        </main>
-       <footer><p className="textFooter">copyright ErryonTV with Ghostwake version 0.0.1 ALPHA</p></footer>    
+       <footer>
+        <Row>
+          <Col>
+            <p className="textFooter">copyright ErryonTV with Ghostwake version 0.0.1 ALPHA</p>
+          </Col>
+        </Row>
+        </footer>    
     </div>
   );
 }

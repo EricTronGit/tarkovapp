@@ -33,7 +33,7 @@ class Sentences extends React.Component {
     render() { 
         return ( 
             
-            <div className="Sentence">.
+            <div className="Sentence">
                 <div>  
                     <p className="phrase-Challenge">{this.state.sentenceNow}</p>
                 </div>
