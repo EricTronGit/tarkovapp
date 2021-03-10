@@ -5,7 +5,6 @@
 }
 
 .App-logo {
-  height: 50vmin;
   pointer-events: none;
 }
 
@@ -31,6 +30,7 @@
 }
 
 .phrase-Challenge{
+  margin-top: 3%;
   color: #ffffff;
   font-size: 40px;
 }
@@ -39,7 +39,7 @@ footer{
   position: fixed;
   width: 100%;
   bottom: 0;
-  margin-top: 20px;
+  margin-top: ;
   background-color:rgba(204, 204, 204, 0.25);
 }
 .textFooter{

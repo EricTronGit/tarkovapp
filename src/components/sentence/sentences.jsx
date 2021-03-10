@@ -19,7 +19,6 @@ class Sentences extends React.Component {
 
 
     rollSentence(e) {
-       //TODO const maVar = this.state.sentencesArray[Math.floor(Math.random() * this.state.sentencesArray.length)];
         const resultSentence = this.createSentence();
         this.setState({...this.state,sentenceNow:resultSentence})
     }

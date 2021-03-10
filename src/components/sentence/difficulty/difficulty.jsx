@@ -8,29 +8,33 @@ class Difficulty extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            dropdownTitle:"Standard"
+        }
+    }
+
+    changeDifficulty(eventKey){
+        this.setState({...this.state,dropdownTitle:eventKey});
     }
 
     render() { 
-        return (      
-            
+        return (
             <div className="Difficulty">
                 <Container fluid>
-                    <Row>
+                    <Row>                    
                         <Col>
-                            <span className="white-text">Selection une difficulté = </span>
-                        </Col>
-                        <Col>
-                        <Dropdown>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                Difficulté
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Standard</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Simple</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Hardcore</Dropdown.Item>
-                            </Dropdown.Menu>
+                            <span className="white-text">Sélectionne une difficulté</span>                        
+                            <Dropdown onSelect={this.changeDifficulty.bind(this)}>
+                                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                    {this.state.dropdownTitle}
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item eventKey="Standard">Standard</Dropdown.Item>
+                                    <Dropdown.Item eventKey="Simple">Simple</Dropdown.Item>
+                                    <Dropdown.Item eventKey="Hardcore">Hardcore</Dropdown.Item>
+                                </Dropdown.Menu>
                             </Dropdown>
-                        </Col>
+                        </Col>                        
                     </Row>
                 </Container>  
             </div>   

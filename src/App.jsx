@@ -2,7 +2,7 @@ import './App.css';
 import Sentences from './components/sentence/sentences.jsx';
 import Difficulty from './components/sentence/difficulty/difficulty.jsx';
 
-import { Col, Row } from 'react-bootstrap';
+import { Col, Nav, Row } from 'react-bootstrap';
 import image from './asset/test.png'
 
 
@@ -11,8 +11,9 @@ function App() {
   return (
     <div className="App">
        <header className="App-header">
-         <nav>          
-         </nav> 
+         <Nav>
+                    
+         </Nav> 
        </header>
        <main>
        <section>
@@ -34,7 +35,7 @@ function App() {
        <footer>
         <Row>
           <Col>
-            <p className="textFooter">copyright ErryonTV with Ghostwake version 0.0.1 ALPHA</p>
+            <p className="textFooter">Copyright <a href="https://www.twitch.tv/erryontv" target="_blank">ErryonTV</a> version 0.0.1 ALPHA</p>
           </Col>
         </Row>
         </footer>    
