@@ -4,9 +4,15 @@ import Difficulty from './components/sentence/difficulty/difficulty.jsx';
 
 import { Col, Nav, Row } from 'react-bootstrap';
 import image from './asset/test.png'
-
+import { useState } from 'react';
 
 function App() {
+  
+  const [difficulty, setDifficulty] = useState("Standard");
+
+  const callback = (chosenDifficulty) => {
+     setDifficulty(chosenDifficulty);  
+  }
 
   return (
     <div className="App">
@@ -26,8 +32,8 @@ function App() {
          <section>
             <article>
               <div>
-                <Difficulty difficultySelect="Standard"/>
-                <Sentences difficulty="Paul"/>
+                <Difficulty difficultySelect={callback}/>
+                <Sentences difficulty={difficulty}/>
               </div>
             </article>
          </section>
@@ -35,7 +41,7 @@ function App() {
        <footer>
         <Row>
           <Col>
-            <p className="textFooter">Copyright <a href="https://www.twitch.tv/erryontv" target="_blank">ErryonTV</a> version 0.0.1 ALPHA</p>
+            <p className="textFooter">Copyright <a href="https://www.twitch.tv/erryontv" target="_blank" rel="noreferrer">ErryonTV</a> version 0.0.1 ALPHA</p>
           </Col>
         </Row>
         </footer>    

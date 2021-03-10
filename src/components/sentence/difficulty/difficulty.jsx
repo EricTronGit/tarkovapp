@@ -14,7 +14,8 @@ class Difficulty extends React.Component {
     }
 
     changeDifficulty(eventKey){
-        this.setState({...this.state,dropdownTitle:eventKey});
+        this.setState({...this.state,dropdownTitle:eventKey});        
+        this.props.difficultySelect(eventKey);
     }
 
     render() { 
