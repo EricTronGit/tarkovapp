@@ -1,10 +1,11 @@
 .App {
   text-align: center;
+  width: 100%;
   
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 50vmin;
   pointer-events: none;
 }
 
@@ -22,6 +23,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  width: 100%;
 }
 
 .App-link {
@@ -37,6 +39,7 @@ footer{
   position: fixed;
   width: 100%;
   bottom: 0;
+  margin-top: 20px;
   background-color:rgba(204, 204, 204, 0.25);
 }
 .textFooter{

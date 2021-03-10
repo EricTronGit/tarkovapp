@@ -1,6 +1,7 @@
 import './App.css';
-import Button from 'react-bootstrap/Button';
 import Sentences from './components/sentence/sentences.jsx';
+import Difficulty from './components/sentence/difficulty/difficulty.jsx';
+
 import { Col, Row } from 'react-bootstrap';
 import image from './asset/test.png'
 
@@ -17,14 +18,15 @@ function App() {
        <section>
             <article>
               <div>
-                <img src={image} />
+                <img className="App-logo" src={image} alt="Logo"/>
               </div>
             </article>
          </section>
          <section>
             <article>
               <div>
-                <Sentences name="Paul"/>
+                <Difficulty />
+                <Sentences difficulty="Paul"/>
               </div>
             </article>
          </section>

@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 
 
+
 class Sentences extends React.Component {
 
     constructor(props) {
@@ -31,8 +32,7 @@ class Sentences extends React.Component {
     }
 
     render() { 
-        return ( 
-            
+        return (
             <div className="Sentence">
                 <div>  
                     <p className="phrase-Challenge">{this.state.sentenceNow}</p>
