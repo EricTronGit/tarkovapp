@@ -23,10 +23,10 @@ class Difficulty extends React.Component {
                 <Container fluid>
                     <Row>                    
                         <Col>
-                            <span className="white-text">Sélectionne une difficulté</span>                        
+                            <span className="white-text"><s>(/!\ en cours de DEV)Sélectionne une difficulté (/!\ en cours de DEV)</s></span>                        
                             <Dropdown onSelect={this.changeDifficulty.bind(this)}>
                                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                    {this.state.dropdownTitle}
+                                    <s>{this.state.dropdownTitle}</s>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     <Dropdown.Item eventKey="Standard">Standard</Dropdown.Item>
