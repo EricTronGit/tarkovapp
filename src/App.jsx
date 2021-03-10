@@ -26,7 +26,7 @@ function App() {
          <section>
             <article>
               <div>
-                <Difficulty />
+                <Difficulty difficultySelect="Standard"/>
                 <Sentences difficulty="Paul"/>
               </div>
             </article>

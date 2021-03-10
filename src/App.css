@@ -1,11 +1,11 @@
 .App {
   text-align: center;
-  width: 100%;
-  
+  width: 100%;  
 }
 
 .App-logo {
   pointer-events: none;
+  min-height: 10vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -7,6 +7,7 @@ class Sentences extends React.Component {
 
     constructor(props) {
       super(props);
+      console.log(props);
       this.state = {
         sentenceNow:"Cliquez sur ROLL pour lancer l'aléatoire",
         sentencesArrayBeginning:["Lance une carte ","Pars sur la carte ","Rends toi sur "],
