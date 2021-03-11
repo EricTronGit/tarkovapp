@@ -1,47 +1,46 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
 
-class Sentences extends React.Component {
 
-    HARDCORE = "Hardcore";
-    STANDARD = "Standard";
-    SIMPLE = "Simple";
+function Sentences(props) {
+    const HARDCORE = "Hardcore";
+    const STANDARD = "Standard";
+    const SIMPLE = "Simple";
+    const sentencesArrayBeginning = ["Lance une carte ","Pars sur la carte ","Rends toi sur "];
+    const arrayMaps = ["Echangeur","Douanes","Labs","Base militaire","Littoral","Usine","Bois"];
+    const sentencesArrayMiddle=[" avec ", " en t'équipant d'"];
+    const arrayWeapons=["une AK47","une AKM","un Hunter","un SKS","une M4A1","une HK 416"];
+    const arrayHardcore=["Tue 15 PMC au couteau"];
 
-    constructor(props) {
-      super(props);
-      this.state = {
-        sentenceNow:"Cliquez sur ROLL pour lancer l'aléatoire",
-        sentencesArrayBeginning:["Lance une carte ","Pars sur la carte ","Rends toi sur "],
-        arrayMaps:["Echangeur","Douanes","Labs","Base militaire","Littoral","Usine","Bois"],
-        sentencesArrayMiddle:[" avec ", " en t'équipant d'"],
-        arrayWeapons:["une AK47","une AKM","un Hunter","un SKS","une M4A1","une HK 416"],
-        arrayHardcore:["Tue 15 PMC au couteau"]
-      }
-      
+    const [sentenceNow, setSentenceNow] = useState("Clique sur ROLL pour génerer un challenge");
+  
+        
+        
+
+    const rollSentence  = (e) => {
+        const resultSentence = createSentence();
+        setSentenceNow(resultSentence);
     }
 
-    rollSentence(e) {
-        const resultSentence = this.createSentence();
-        this.setState({...this.state,sentenceNow:resultSentence})
+    const createSentence = () => {
+        IA();
+        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)] + 
+        arrayMaps[Math.floor(Math.random() * arrayMaps.length)] +
+        sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)] +
+        arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)];
+        
     }
 
-    createSentence(){
-        this.IA();
-        return this.state.sentencesArrayBeginning[Math.floor(Math.random() * this.state.sentencesArrayBeginning.length)] + 
-                this.state.arrayMaps[Math.floor(Math.random() * this.state.arrayMaps.length)] +
-                this.state.sentencesArrayMiddle[Math.floor(Math.random() * this.state.sentencesArrayMiddle.length)] +
-                this.state.arrayWeapons[Math.floor(Math.random() * this.state.arrayWeapons.length)];
-    }
-
-    IA(){
-        switch(this.props.difficulty) {
-            case this.HARDCORE:
+    const IA = () => {
+        switch(props.difficulty) {
+            case HARDCORE:
                 console.log("HARDCORE");
                 break;
-            case this.STANDARD:
+            case STANDARD:
                 console.log("STANDARD");
                 break;
-            case this.SIMPLE:
+            case SIMPLE:
                 console.log("SIMPLE");
                 break;
             default:
@@ -51,18 +50,19 @@ class Sentences extends React.Component {
         
     }
 
-    render() { 
-        return (
-            <div className="Sentence">
-                <div>  
-                    <p className="phrase-Challenge">{this.state.sentenceNow}</p>
-                </div>
-                <div>
-                    <Button variant="dark" onClick={this.rollSentence.bind(this)}>ROLL</Button>
-                </div>
-            </div>    
-        );
-    };
+
+    return (
+        <div className="Sentence">
+            <div>  
+                <p className="phrase-Challenge">{sentenceNow}</p>
+                {props.difficulty === HARDCORE && <p className="phrase-Challenge">Bonjour</p>}
+            </div>
+            <div>
+                <Button variant="dark" onClick={rollSentence.bind(this)}>ROLL</Button>
+            </div>
+        </div>    
+    );
+  
      
 }
   
