@@ -18,7 +18,7 @@ function Sentences(props) {
     const arrayHardcore = ["Tue trois PMCs dans la tête", "Tue cinq Scavs en dix minutes", "Ne porte pas dispositif audio"];
 
     let [click, setClick] = useState(0);
-    const [sentenceNow, setSentenceNow] = useState("Clique sur ROLL pour génerer un challenge");
+    const [sentenceNow, setSentenceNow] = useState("Clique sur \"LANCER\" pour génerer un challenge");
 
 
 

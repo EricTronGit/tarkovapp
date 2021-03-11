@@ -23,7 +23,14 @@ function App() {
       <Navbar fixed="top" variant="dark">
         <Navbar.Brand href="#home">
           <span className="tarkov-text">Tarkov Challenge</span> 
+          
         </Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+             {/* <a href="" className="tarkov-text">A propos</a> */}
+          </Navbar.Text>
+        </Navbar.Collapse>
+
        </Navbar>
       </header>
       <Container className="vh-100 d-flex flex-column ">
