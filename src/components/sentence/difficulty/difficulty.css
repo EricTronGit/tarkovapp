@@ -1,14 +1,22 @@
 .white-text{
-    color: whitesmoke;
+    font-family: FontTarkov;
+    color: #7E7055;
     font-size: 30px;
+    text-shadow: black 2px 0 5px;
 }
 
 .Difficulty{
-    margin-top: 13%;
+    margin-top: 11%;
 }
 
 .dropdown-tarkov{
     color: black !important;
     background-color :#7E7055 !important;
     border-color: #7E7055 !important;
+    font-family: FontTarkov;
+}
+
+@font-face{
+    font-family: "FontTarkov";
+    src: url("../../../asset/bender.black.otf") format("truetype");
 }

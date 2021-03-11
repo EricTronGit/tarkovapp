@@ -17,16 +17,16 @@ function Difficulty(props) {
     return (
         <Col fluid>   
             <div className="Difficulty">
-                            <p className="white-text">Sélectionne une difficulté</p>                        
-                            <Dropdown onSelect={changeDifficulty.bind(this)}>
-                                <Dropdown.Toggle variant="success" id="dropdown-basic" className="dropdown-tarkov">
-                                    {dropdownTitle}
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu>
-                                    <Dropdown.Item eventKey="Standard">Standard</Dropdown.Item>                                    
-                                    <Dropdown.Item eventKey="Hardcore">Hardcore</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
+                <p className="white-text">SELECTIONNE UNE DIFFICULTE</p>                        
+                <Dropdown onSelect={changeDifficulty.bind(this)}>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic" className="dropdown-tarkov">
+                        {dropdownTitle}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu className="dropdown-tarkov">
+                        <Dropdown.Item eventKey="Standard">Standard</Dropdown.Item>                                    
+                        <Dropdown.Item eventKey="Hardcore">Hardcore</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
             </div>  
         </Col> 
                 

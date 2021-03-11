@@ -1,5 +1,18 @@
+.Sentence{
+    margin-top: 5%;
+}
+
 .btn-tarkov{
     color: black !important;
     background-color :#7E7055 !important;
     border-color: #7E7055 !important;
+    font-family: FontTarkov;
+}
+
+.tarkov-text{
+    text-transform:uppercase ;
+    font-family: FontTarkov;
+    color: #7E7055;
+    font-size: 30px;
+    text-shadow: black 2px 0 5px;
 }

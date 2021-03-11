@@ -15,7 +15,7 @@ function Sentences(props) {
     const sentencesArrayMiddle = [" avec ", " en t'équipant d'"];
     const arrayMaps = ["Echangeur", "Douanes", "Labs", "Base militaire", "Littoral", "Usine", "Bois"];
     const arrayWeapons = ["une AK47", "une AKM", "un Hunter", "un SKS", "une M4A1", "une HK 416"];
-    const arrayHardcore = ["Tue 3 PMCs dans la tête", "Tue 5 Scavs en 10 minutes", "Ne porte pas dispositif audio"];
+    const arrayHardcore = ["Tue trois PMCs dans la tête", "Tue cinq Scavs en dix minutes", "Ne porte pas dispositif audio"];
 
     let [click, setClick] = useState(0);
     const [sentenceNow, setSentenceNow] = useState("Clique sur ROLL pour génerer un challenge");
@@ -68,8 +68,8 @@ function Sentences(props) {
     return (
         <Col>
             <div className="Sentence">
-                <p className="phrase-Challenge">{sentenceNow}</p>
-                {(props.difficulty === HARDCORE && click !== 0) && <p className="list-challenge">
+                <p className="tarkov-text">{sentenceNow}</p>
+                {(props.difficulty === HARDCORE && click !== 0) && <p className="tarkov-text">
                     {arrayHardcore[Math.floor(Math.random() * arrayHardcore.length)]}</p>}
                 <Button variant="primary" className="btn-tarkov" onClick={rollSentence.bind(this)}>LANCER</Button>
             </div>

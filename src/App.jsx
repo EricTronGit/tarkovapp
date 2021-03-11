@@ -22,14 +22,7 @@ function App() {
       <header className="App-header">
       <Navbar fixed="top" variant="dark">
         <Navbar.Brand href="#home">
-          <img
-            alt=""
-            src={imageLogo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{' '}
-          Tarkov Challenge
+          <span className="tarkov-text">Tarkov Challenge</span> 
         </Navbar.Brand>
        </Navbar>
       </header>

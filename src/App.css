@@ -47,6 +47,14 @@ main{
   font-size: 20px;
 }
 
+.tarkov-text{
+  text-transform:uppercase ;
+  font-family: FontTarkov;
+  color: #7E7055;
+  font-size: 30px;
+  text-shadow: black 2px 0 5px;
+}
+
 footer{
   border-top:solid black 1px;
   position: fixed;
@@ -56,6 +64,10 @@ footer{
   background-color:rgba(126, 112, 85, 0.25);
 }
 .textFooter{
+  font-size: 10px;
   margin: auto;
-  color: white;
+  text-transform:uppercase ;
+  font-family: FontTarkov;
+  color: #7E7055;
+  text-shadow: black 2px 0 5px;
 }
