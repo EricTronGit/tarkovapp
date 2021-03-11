@@ -1,7 +1,9 @@
+import './sentences.css';
+
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 
 function Sentences(props) {
@@ -57,14 +59,12 @@ function Sentences(props) {
 
     return (
         <Col>
-        <div className="Sentence">
-            
+            <div className="Sentence">
                 <p className="phrase-Challenge">{sentenceNow}</p>
                 {(props.difficulty === HARDCORE && click !== 0) && <p className="list-challenge">
-                    {arrayHardcore[Math.floor(Math.random() * arrayHardcore.length)]}</p>}    
-                <Button variant="dark" onClick={rollSentence.bind(this)}>ROLL</Button>
-            
-        </div>
+                    {arrayHardcore[Math.floor(Math.random() * arrayHardcore.length)]}</p>}
+                <Button variant="primary" className="btn-tarkov" onClick={rollSentence.bind(this)}>LANCER</Button>
+            </div>
         </Col>
     );
   

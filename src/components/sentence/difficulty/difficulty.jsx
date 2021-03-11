@@ -3,7 +3,7 @@ import './difficulty.css';
 import React from 'react';
 import { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 function Difficulty(props) {
 
@@ -17,9 +17,9 @@ function Difficulty(props) {
     return (
         <Col fluid>   
             <div className="Difficulty">
-                            <span className="white-text">Sélectionne une difficulté</span>                        
+                            <p className="white-text">Sélectionne une difficulté</p>                        
                             <Dropdown onSelect={changeDifficulty.bind(this)}>
-                                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                <Dropdown.Toggle variant="success" id="dropdown-basic" className="dropdown-tarkov">
                                     {dropdownTitle}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
@@ -28,7 +28,7 @@ function Difficulty(props) {
                                 </Dropdown.Menu>
                             </Dropdown>
             </div>  
-            </Col> 
+        </Col> 
                 
         );
     }

@@ -2,8 +2,10 @@ import './App.css';
 import Sentences from './components/sentence/sentences.jsx';
 import Difficulty from './components/sentence/difficulty/difficulty.jsx';
 
-import { Col, Container, Nav, Row } from 'react-bootstrap';
+import { Col, Container, Navbar, Row } from 'react-bootstrap';
 import image from './asset/test.png'
+import imageLogo from './asset/imgnavbar.png'
+
 import { useState } from 'react';
 
 function App() {
@@ -18,9 +20,18 @@ function App() {
 
     <div className="App">
       <header className="App-header">
-        <Nav>
-
-        </Nav>
+      <Navbar fixed="top" variant="dark">
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src={imageLogo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{' '}
+          Tarkov Challenge
+        </Navbar.Brand>
+       </Navbar>
       </header>
       <Container className="vh-100 d-flex flex-column ">
       <main>        

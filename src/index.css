@@ -1,4 +1,4 @@
-html{
+html {
   width: 100%;
   max-width: 100%;
 }
@@ -9,9 +9,12 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
-   background: url("asset/tarkov.png");
-   max-width: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  background: url("asset/tarkov.png");
+  max-width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
