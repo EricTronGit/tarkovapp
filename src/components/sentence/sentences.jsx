@@ -11,7 +11,7 @@ function Sentences(props) {
     const arrayMaps = ["Echangeur","Douanes","Labs","Base militaire","Littoral","Usine","Bois"];
     const sentencesArrayMiddle=[" avec ", " en t'équipant d'"];
     const arrayWeapons=["une AK47","une AKM","un Hunter","un SKS","une M4A1","une HK 416"];
-    const arrayHardcore=["Tue 15 PMC au couteau"];
+    const arrayHardcore=["Tue 3 PMCs dans la tête","Tue 5 Scavs en 10 minutes","Ne porte pas dispositif audio"];
 
     const [sentenceNow, setSentenceNow] = useState("Clique sur ROLL pour génerer un challenge");
   
@@ -55,7 +55,7 @@ function Sentences(props) {
         <div className="Sentence">
             <div>  
                 <p className="phrase-Challenge">{sentenceNow}</p>
-                {props.difficulty === HARDCORE && <p className="phrase-Challenge">Bonjour</p>}
+                {props.difficulty === HARDCORE && <p className="list-challenge">{arrayHardcore[Math.floor(Math.random() * arrayHardcore.length)]}</p>}
             </div>
             <div>
                 <Button variant="dark" onClick={rollSentence.bind(this)}>ROLL</Button>

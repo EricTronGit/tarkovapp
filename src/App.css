@@ -35,6 +35,11 @@
   font-size: 40px;
 }
 
+.list-challenge{
+  color: #ffffff;
+  font-size: 20px;
+}
+
 footer{
   position: fixed;
   width: 100%;

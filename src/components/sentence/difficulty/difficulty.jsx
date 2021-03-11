@@ -19,7 +19,7 @@ function Difficulty(props) {
                 <Container fluid>
                     <Row>                    
                         <Col>
-                            <span className="white-text"><s>(/!\ en cours de DEV)Sélectionne une difficulté (/!\ en cours de DEV)</s></span>                        
+                            <span className="white-text">Sélectionne une difficulté <u>(Seulement Hardcore pour le moment)</u></span>                        
                             <Dropdown onSelect={changeDifficulty.bind(this)}>
                                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                                     {dropdownTitle}
