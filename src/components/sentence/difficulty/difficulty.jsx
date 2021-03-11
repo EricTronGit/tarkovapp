@@ -15,10 +15,8 @@ function Difficulty(props) {
     }   
     
     return (
+        <Col fluid>   
             <div className="Difficulty">
-                <Container fluid>
-                    <Row>                    
-                        <Col>
                             <span className="white-text">Sélectionne une difficulté</span>                        
                             <Dropdown onSelect={changeDifficulty.bind(this)}>
                                 <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -29,10 +27,8 @@ function Difficulty(props) {
                                     <Dropdown.Item eventKey="Hardcore">Hardcore</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
-                        </Col>                        
-                    </Row>
-                </Container>  
-            </div>   
+            </div>  
+            </Col> 
                 
         );
     }
