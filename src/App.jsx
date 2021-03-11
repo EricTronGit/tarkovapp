@@ -46,7 +46,7 @@ function App() {
         <Row>
           <Col>
           <p className="textFooter">Copyright <a href="https://www.twitch.tv/erryontv" target="_blank"
-              rel="noreferrer">ErryonTV</a> version 0.0.1 ALPHA</p>
+              rel="noreferrer">ErryonTV</a> version 0.0.2 ALPHA</p>
           </Col>
         </Row>
         </Container>
