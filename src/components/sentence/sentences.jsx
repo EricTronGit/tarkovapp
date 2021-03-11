@@ -30,22 +30,16 @@ function Sentences(props) {
     }
 
     const createSentence = () => {
-        IA();
-        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)] +
-            arrayMaps[Math.floor(Math.random() * arrayMaps.length)] +
-            sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)] +
-            arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)];
+        return chooseSentence();
 
     }
 
-    const IA = () => {
+    const chooseSentence = () => {
         switch (props.difficulty) {
             case HARDCORE:
-                console.log("HARDCORE");
-                break;
+                return sentenceHardcore();
             case STANDARD:
-                console.log("STANDARD");
-                break;
+                return sentenceStandard();                
             case SIMPLE:
                 console.log("SIMPLE");
                 break;
@@ -54,6 +48,20 @@ function Sentences(props) {
                 break;
         }
 
+    }
+
+    const sentenceStandard = () => {
+        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)] +
+        arrayMaps[Math.floor(Math.random() * arrayMaps.length)] +
+        sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)] +
+        arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)];
+    }
+
+    const sentenceHardcore = () => {
+        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)] +
+        arrayMaps[Math.floor(Math.random() * arrayMaps.length)] +
+        sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)] +
+        arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)];
     }
 
 
