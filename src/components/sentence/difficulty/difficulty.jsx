@@ -1,33 +1,28 @@
 import './difficulty.css';
 
 import React from 'react';
+import { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Col, Container, Row } from 'react-bootstrap';
 
-class Difficulty extends React.Component {
+function Difficulty(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            dropdownTitle:"Standard"
-        }
-    }
+    const [dropdownTitle, setDropdownTitle] = useState("Standard");
 
-    changeDifficulty(eventKey){
-        this.setState({...this.state,dropdownTitle:eventKey});        
-        this.props.difficultySelect(eventKey);
-    }
-
-    render() { 
-        return (
+    const changeDifficulty =  (eventKey) => {
+        setDropdownTitle(eventKey);        
+        props.difficultySelect(eventKey);
+    }   
+    
+    return (
             <div className="Difficulty">
                 <Container fluid>
                     <Row>                    
                         <Col>
                             <span className="white-text"><s>(/!\ en cours de DEV)Sélectionne une difficulté (/!\ en cours de DEV)</s></span>                        
-                            <Dropdown onSelect={this.changeDifficulty.bind(this)}>
+                            <Dropdown onSelect={changeDifficulty.bind(this)}>
                                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                    {this.state.dropdownTitle}
+                                    {dropdownTitle}
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
                                     <Dropdown.Item eventKey="Standard">Standard</Dropdown.Item>
@@ -41,7 +36,7 @@ class Difficulty extends React.Component {
             </div>   
                 
         );
-    };
-}
+    }
+
 
 export default Difficulty;
