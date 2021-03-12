@@ -1,0 +1,22 @@
+{
+    "debut": [
+        {
+            "phrase" : "Lance une carte "
+        },
+        {
+            "phrase" : "Pars sur la carte "
+        },
+        {
+            "phrase" : "Rends toi sur "
+        }
+    ],
+    "middle": [
+        {
+            "phrase" : " avec  "
+        },
+        {
+            "phrase" : " en t'équipant d'"
+        }
+    ],
+    "hardcore" : []
+}

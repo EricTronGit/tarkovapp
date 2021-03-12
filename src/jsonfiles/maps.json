@@ -1,0 +1,25 @@
+{
+    "maps": [
+        {
+            "nom" : "Echangeur"
+        },
+        {
+            "nom" : "Douanes"
+        },
+        {
+            "nom" : "Labs"
+        },
+        {
+            "nom" : "Base militaire"
+        },
+        {
+            "nom" : "Littoral"
+        },
+        {
+            "nom" : "Usine"
+        },
+        {
+            "nom" : "Bois"
+        }
+    ]
+}

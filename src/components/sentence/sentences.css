@@ -7,6 +7,7 @@
     background-color :#7E7055 !important;
     border-color: #7E7055 !important;
     font-family: FontTarkov;
+    box-shadow: black 0px 0px 5px;
 }
 
 .tarkov-text{
@@ -14,5 +15,15 @@
     font-family: FontTarkov;
     color: #7E7055;
     font-size: 30px;
-    text-shadow: black 2px 0 5px;
+    text-shadow: black 0px 0px 5px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
 }
+
+
+
+@font-face{
+    font-family: "FontTarkov";
+    src: url(".../../../../asset/bender.black.otf") format("truetype");
+  }
+  

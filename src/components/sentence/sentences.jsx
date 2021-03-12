@@ -1,6 +1,8 @@
 import './sentences.css';
 import armes from "../../jsonfiles/armes.json"
-import React from 'react';
+import sentences from "../../jsonfiles/sentences.json"
+import maps from "../../jsonfiles/maps.json"
+import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { Col } from 'react-bootstrap';
@@ -12,20 +14,25 @@ function Sentences(props) {
     const STANDARD = "Standard";
     const SIMPLE = "Simple";
 
-    const sentencesArrayBeginning = ["Lance une carte ", "Pars sur la carte ", "Rends toi sur "];
-    const sentencesArrayMiddle = [" avec ", " en t'équipant d'"];
-    const arrayMaps = ["Echangeur", "Douanes", "Labs", "Base militaire", "Littoral", "Usine", "Bois"];
-    let arrayWeapons = [];
-    const arrayHardcore = ["Tue trois PMCs dans la tête", "Tue cinq Scavs en dix minutes", "Ne porte pas dispositif audio"];
+    
+    const arrayHardcore = ["Tue 3 PMCs dans la tête", "Tue cinq Scavs en dix minutes", "Ne porte pas dispositif audio"];
 
+    
+    let [sentencesArrayBeginning, setSentencesArrayBeginning] = useState([]);
+    let [sentencesArrayMiddle, setSentencesArrayMiddle] = useState([]);
+    let [arrayWeapons, setArrayWeapons] = useState([]);
+    let [arrayMaps, setArrayMaps] = useState([]);
     let [click, setClick] = useState(0);
     const [sentenceNow, setSentenceNow] = useState("Clique sur \"LANCER\" pour génerer un challenge");
 
-
+    useEffect(() => setSentencesArrayBeginning(sentences.debut), []);
+    useEffect(() => setSentencesArrayMiddle(sentences.middle), []);
+    useEffect(() => setArrayWeapons(armes.armes), []);
+    useEffect(() => setArrayMaps(maps.maps), []);
 
 
     const rollSentence = (e) => {
-        arrayWeapons = armes.armes;
+        
         console.log(data);
         click = setClick(click + 1);
         const resultSentence = createSentence();
@@ -54,16 +61,16 @@ function Sentences(props) {
     }
 
     const sentenceStandard = () => {
-        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)] +
-        arrayMaps[Math.floor(Math.random() * arrayMaps.length)] +
-        sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)] +
+        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)].phrase +
+        arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom +
+        sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)].phrase +
         arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)].nom;
     }
 
     const sentenceHardcore = () => {
-        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)] +
-        arrayMaps[Math.floor(Math.random() * arrayMaps.length)] +
-        sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)] +
+        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)].phrase +
+        arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom +
+        sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)].phrase +
         arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)].nom;
     }
 
