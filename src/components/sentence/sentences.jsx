@@ -1,9 +1,10 @@
 import './sentences.css';
-
+import armes from "../../jsonfiles/armes.json"
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { Col } from 'react-bootstrap';
+import { data } from 'jquery';
 
 
 function Sentences(props) {
@@ -14,7 +15,7 @@ function Sentences(props) {
     const sentencesArrayBeginning = ["Lance une carte ", "Pars sur la carte ", "Rends toi sur "];
     const sentencesArrayMiddle = [" avec ", " en t'équipant d'"];
     const arrayMaps = ["Echangeur", "Douanes", "Labs", "Base militaire", "Littoral", "Usine", "Bois"];
-    const arrayWeapons = ["une AK47", "une AKM", "un Hunter", "un SKS", "une M4A1", "une HK 416"];
+    let arrayWeapons = [];
     const arrayHardcore = ["Tue trois PMCs dans la tête", "Tue cinq Scavs en dix minutes", "Ne porte pas dispositif audio"];
 
     let [click, setClick] = useState(0);
@@ -24,6 +25,8 @@ function Sentences(props) {
 
 
     const rollSentence = (e) => {
+        arrayWeapons = armes.armes;
+        console.log(data);
         click = setClick(click + 1);
         const resultSentence = createSentence();
         setSentenceNow(resultSentence);
@@ -54,7 +57,7 @@ function Sentences(props) {
         return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)] +
         arrayMaps[Math.floor(Math.random() * arrayMaps.length)] +
         sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)] +
-        arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)];
+        arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)].nom;
     }
 
     const sentenceHardcore = () => {

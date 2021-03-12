@@ -15,7 +15,7 @@ function Difficulty(props) {
     }   
     
     return (
-        <Col fluid>   
+        <Col>   
             <div className="Difficulty">
                 <p className="white-text">SELECTIONNE UNE DIFFICULTE</p>                        
                 <Dropdown onSelect={changeDifficulty.bind(this)}>
