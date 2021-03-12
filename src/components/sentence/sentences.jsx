@@ -64,7 +64,7 @@ function Sentences(props) {
         return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)] +
         arrayMaps[Math.floor(Math.random() * arrayMaps.length)] +
         sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)] +
-        arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)];
+        arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)].nom;
     }
 
 
