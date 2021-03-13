@@ -18,5 +18,15 @@
             "phrase" : " en t'équipant d'"
         }
     ],
-    "hardcore" : []
+    "hardcore" : [
+        {
+            "phrase" : "Tue 3 PMCs dans la tête"
+        },
+        {
+            "phrase" : "Tue cinq Scavs en dix minutes"
+        },
+        {
+            "phrase" : "Ne porte pas dispositif audio"
+        }
+    ]
 }

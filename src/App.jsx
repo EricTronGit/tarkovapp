@@ -4,7 +4,6 @@ import Difficulty from './components/sentence/difficulty/difficulty.jsx';
 
 import { Col, Container, Navbar, Row } from 'react-bootstrap';
 import image from './asset/test.png'
-import imageLogo from './asset/imgnavbar.png'
 
 import { useState } from 'react';
 
@@ -20,14 +19,10 @@ function App() {
 
     <div className="App">
       <header className="App-header">
-      <Navbar fixed="top" variant="dark">
-        <Navbar.Brand href="#home">
-          <span className="tarkov-text">Tarkov Challenge</span> 
-          
-        </Navbar.Brand>
+      <Navbar fixed="top" variant="dark">        
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-             {/* <a href="" className="tarkov-text">A propos</a> */}
+             <a href="" className="tarkov-text">A propos</a>
           </Navbar.Text>
         </Navbar.Collapse>
 

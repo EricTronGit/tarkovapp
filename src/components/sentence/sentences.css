@@ -20,6 +20,29 @@
     -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
 }
 
+.tarkov-text-defi{
+    text-transform:uppercase ;
+    font-family: FontTarkov;
+    color: #7E7055;
+    
+    font-size: 20px;
+    text-shadow: black 0px 0px 5px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
+}
+
+.cadenas-standard{
+    height:25px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.cadenas-hardcore{
+    height:15px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
 
 
 @font-face{
