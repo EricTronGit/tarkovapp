@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;  
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   overflow : hidden;
   background-image: url("asset/tarkov.png");
   max-width: 100%;

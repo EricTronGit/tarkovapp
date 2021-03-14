@@ -14,13 +14,13 @@ import {
 } from 'react-bootstrap';
 import cadenasOpen from '../../asset/cadenasopen.png';
 import cadenasClose from '../../asset/cadenas.png';
-import LabsWallpaper from '../../asset/tarkovClick.jpg';
-import WoodsWallpaper from '../../asset/wallpaperwoods.jpg';
+import LabsWallpaper from '../../asset/wallpaperLabs.png';
+import WoodsWallpaper from '../../asset/wallpaperwoods.png';
 import InterchangeWallpaper from '../../asset/wallpaperInterchange.png';
-import CustomsWallpaper from '../../asset/wallpaperCustoms.jpg';
-import ShorelineWallpaper from '../../asset/wallpaperShoreline.jpg';
+import CustomsWallpaper from '../../asset/wallpaperCustoms.png';
+import ShorelineWallpaper from '../../asset/wallpaperShoreline.png';
 import FactoryWallpaper from '../../asset/wallpaperFactory.png';
-import ReserveWallpaper from '../../asset/wallpaperReserve.jpg';
+import ReserveWallpaper from '../../asset/wallpaperReserve.png';
 
 
 
@@ -50,9 +50,16 @@ function Sentences(props) {
     let [lockedStandard, setLockedStandard] = useState(false);
     let [lockedHardcore, setLockedHardcore] = useState(false);
 
-  
+    let [imgLabs, setImgLabs] = useState();
+    let [imgReverve, setImgReverve] = useState();
+    let [imgCustoms, setImgCustoms] = useState();
+    let [imgShoreline, setImgShoreline] = useState();
+    let [imgFactory, setImgFactory] = useState();
+    let [imgWoods, setImgWoods] = useState();
+    let [imgInterchange, setImgInterchange] = useState();
     
     useEffect(() => initialize(),[]);
+    useEffect(() => preloadImage(),[]);
 
     const initialize = () => {
         setSentencesArrayBeginning(sentences.debut);
@@ -65,37 +72,51 @@ function Sentences(props) {
         setSentenceSimpleNow("Clique sur \"LANCER\" pour génerer un challenge");
     }
 
+    const preloadImage = () => {
+        setImgLabs(LabsWallpaper);
+        setImgReverve(ReserveWallpaper);
+        setImgCustoms(CustomsWallpaper);
+        setImgShoreline(ShorelineWallpaper);
+        setImgFactory(FactoryWallpaper);
+        setImgWoods(WoodsWallpaper);
+        setImgInterchange(InterchangeWallpaper);
+    }
+
     const rollSentence = () => {
         createSentence();
     }
 
     const changeBackground = (map) => {
+        const monImage = new Image();        
         switch (map) {
-            case "Bois":
-                document.body.style.backgroundImage = "url("+WoodsWallpaper+")";
+            case "Bois":                
+                monImage.src = imgWoods;         
                 break;
-            case "Echangeur":
-                document.body.style.backgroundImage = "url("+InterchangeWallpaper+")";
+            case "Echangeur":               
+                monImage.src = imgInterchange;               
                 break;
             case "Labs":
-                document.body.style.backgroundImage = "url("+LabsWallpaper+")";
+                monImage.src = imgLabs;     
                 break;
             case "Base militaire":
-                document.body.style.backgroundImage = "url("+ReserveWallpaper+")";
+                monImage.src = imgReverve;   
                 break;
             case "Douanes":
-                document.body.style.backgroundImage = "url("+CustomsWallpaper+")";
+                monImage.src = imgCustoms;
                 break;
             case "Littoral":
-                document.body.style.backgroundImage = "url("+ShorelineWallpaper+")";
+                monImage.src = imgShoreline;
                 break;
             case "Usine":
-                document.body.style.backgroundImage = "url("+FactoryWallpaper+")";
+                monImage.src = imgFactory;
                 break;                
             default:
                 console.log("ERREUR");
 
         }
+        monImage.onload = function(){
+            document.body.style.backgroundImage = "url("+monImage.src+")";
+        }      
     }
 
     const createSentence = () => {

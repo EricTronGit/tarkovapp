@@ -15,9 +15,7 @@ function App() {
      setDifficulty(chosenDifficulty);  
   }
 
-
   return (
-
     <div className="App">
       <header className="App-header">
       <Navbar fixed="top" variant="dark">        
@@ -25,7 +23,6 @@ function App() {
           <Navbar.Text>
           </Navbar.Text>
         </Navbar.Collapse>
-
        </Navbar>
       </header>
       <Container className="vh-100 d-flex flex-column ">
