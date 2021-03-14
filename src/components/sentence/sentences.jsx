@@ -14,7 +14,14 @@ import {
 } from 'react-bootstrap';
 import cadenasOpen from '../../asset/cadenasopen.png';
 import cadenasClose from '../../asset/cadenas.png';
-import Prout from '../../asset/tarkovClick.jpg';
+import LabsWallpaper from '../../asset/tarkovClick.jpg';
+import WoodsWallpaper from '../../asset/wallpaperwoods.jpg';
+import InterchangeWallpaper from '../../asset/wallpaperInterchange.png';
+import CustomsWallpaper from '../../asset/wallpaperCustoms.jpg';
+import ShorelineWallpaper from '../../asset/wallpaperShoreline.jpg';
+import FactoryWallpaper from '../../asset/wallpaperFactory.png';
+import ReserveWallpaper from '../../asset/wallpaperReserve.jpg';
+
 
 
 function Sentences(props) {
@@ -59,8 +66,36 @@ function Sentences(props) {
     }
 
     const rollSentence = () => {
-        document.body.style.backgroundImage = "url("+Prout+")";
         createSentence();
+    }
+
+    const changeBackground = (map) => {
+        switch (map) {
+            case "Bois":
+                document.body.style.backgroundImage = "url("+WoodsWallpaper+")";
+                break;
+            case "Echangeur":
+                document.body.style.backgroundImage = "url("+InterchangeWallpaper+")";
+                break;
+            case "Labs":
+                document.body.style.backgroundImage = "url("+LabsWallpaper+")";
+                break;
+            case "Base militaire":
+                document.body.style.backgroundImage = "url("+ReserveWallpaper+")";
+                break;
+            case "Douanes":
+                document.body.style.backgroundImage = "url("+CustomsWallpaper+")";
+                break;
+            case "Littoral":
+                document.body.style.backgroundImage = "url("+ShorelineWallpaper+")";
+                break;
+            case "Usine":
+                document.body.style.backgroundImage = "url("+FactoryWallpaper+")";
+                break;                
+            default:
+                console.log("ERREUR");
+
+        }
     }
 
     const createSentence = () => {
@@ -106,8 +141,10 @@ function Sentences(props) {
     }
 
     const createSentenceSimpleNow = () => {
+        let mapNow = arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom;
+        changeBackground(mapNow);
         return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)].phrase +
-        arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom +
+        mapNow +
         sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)].phrase +
         arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)].nom;
     }
