@@ -31,7 +31,14 @@
     -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
 }
 
-.cadenas-standard{
+
+.cadenas-simple{
+    height:25px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.cadenas-standard{ 
     height:25px;
     margin-bottom: 5px;
     margin-left: 10px;

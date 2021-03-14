@@ -18,6 +18,46 @@
             "phrase" : " en t'équipant d'"
         }
     ],
+    "standardArmures": [
+        {
+            "phrase" : " Equipe toi d'une armure classe 6 "
+        },
+        {
+            "phrase" : " Equipe toi d'une armure classe 5 "
+        },
+        {
+            "phrase" : " Equipe toi d'une armure classe 4 "
+        },
+        {
+            "phrase" : " Equipe toi d'une armure classe 3 "
+        },
+        {
+            "phrase" : " Equipe toi d'une armure classe 2 "
+        },
+        {
+            "phrase" : " Equipe toi d'une armure classe 1 "
+        }
+    ],
+    "standardCasque": [
+        {
+            "phrase" : "et d'un casque classe 1"
+        },
+        {
+            "phrase" :  "et d'un casque classe 2"
+        },
+        {
+            "phrase" :  "et d'un casque classe 3"
+        },
+        {
+            "phrase" :  "et d'un casque classe 4"
+        },
+        {
+            "phrase" :  "et d'un casque classe 5"
+        },
+        {
+            "phrase" :  "et d'un casque classe 6"
+        }
+    ],
     "hardcore" : [
         {
             "phrase" : "Tue 3 PMCs dans la tête"
