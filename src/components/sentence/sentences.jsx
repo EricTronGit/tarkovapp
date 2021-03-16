@@ -25,30 +25,33 @@ import ReserveWallpaper from '../../asset/wallpaperReserve.png';
 
 
 function Sentences(props) {
-    const HARDCORE = "Hardcore";
+    const DIFFICILE = "Difficile";
     const STANDARD = "Standard";
     const SIMPLE = "Simple";
+
+    //TODO faire une phrase en français plus mieux !!! 
+    const ALTERATIONDEFI = "Fais - 1 à ta classe d'armure et - 1 à ta classe de casque";
 
     let [sentencesArrayBeginning, setSentencesArrayBeginning] = useState([]);
     let [sentencesArrayMiddle, setSentencesArrayMiddle] = useState([]);
     let [sentencesArrayStandardArmures, setSentencesArrayStandardArmures] = useState([]);
     let [sentencesArrayStandardCasque, setSentencesArrayStandardCasque] = useState([]);
-    let [sentencesArrayHardcore, setSentencesArrayHardcore] = useState([]);
+    let [sentencesArrayDifficile, setSentencesArrayDifficile] = useState([]);
 
     let [arrayWeapons, setArrayWeapons] = useState([]);
     let [arrayMaps, setArrayMaps] = useState([]);
 
     let [clickSimple, setClickSimple] = useState(0);
     let [clickStandard, setClickStandard] = useState(0);
-    let [clickHardcore, setClickHardcore] = useState(0);
+    let [clickDifficile, setClickDifficile] = useState(0);
 
     let [sentenceSimpleNow, setSentenceSimpleNow] = useState([]);
     let [sentenceStandardNow, setSentenceStandardNow] = useState([]);
-    let [sentenceNowHardcore, setSentenceNowHardcore] = useState([]);
+    let [sentenceNowDifficile, setSentenceNowDifficile] = useState([]);
 
     let [lockedSimple, setLockedSimple] = useState(false);
     let [lockedStandard, setLockedStandard] = useState(false);
-    let [lockedHardcore, setLockedHardcore] = useState(false);
+    let [lockedDifficile, setLockedDifficile] = useState(false);
 
     let [imgLabs, setImgLabs] = useState();
     let [imgReverve, setImgReverve] = useState();
@@ -66,7 +69,7 @@ function Sentences(props) {
         setSentencesArrayMiddle(sentences.middle);
         setSentencesArrayStandardArmures(sentences.standardArmures);
         setSentencesArrayStandardCasque(sentences.standardCasque);
-        setSentencesArrayHardcore(sentences.hardcore);
+        setSentencesArrayDifficile(sentences.difficile);
         setArrayWeapons(armes.armes);
         setArrayMaps(maps.maps);
         setSentenceSimpleNow("Clique sur \"LANCER\" pour génerer un challenge");
@@ -129,8 +132,8 @@ function Sentences(props) {
                 return sentenceSimple();
             case STANDARD:
                 return sentenceStandard();
-            case HARDCORE:
-                return sentenceHardcore();   
+            case DIFFICILE:
+                return sentenceDifficile();   
             default:
                 console.log("ERREUR");
                 break;
@@ -153,11 +156,11 @@ function Sentences(props) {
         }
     }
 
-    const sentenceHardcore = () => {
+    const sentenceDifficile = () => {
         sentenceStandard();
-        setClickHardcore(clickHardcore + 1);
-        if(!lockedHardcore){
-            setSentenceNowHardcore(createSentenceHardcoreNow());
+        setClickDifficile(clickDifficile + 1);
+        if(!lockedDifficile){
+            setSentenceNowDifficile(createSentenceDifficileNow());
         }
     }
 
@@ -176,8 +179,8 @@ function Sentences(props) {
        
     }
 
-    const createSentenceHardcoreNow = () => {
-        return sentencesArrayHardcore[Math.floor(Math.random() * sentencesArrayHardcore.length)].phrase;
+    const createSentenceDifficileNow = () => {
+        return sentencesArrayDifficile[Math.floor(Math.random() * sentencesArrayDifficile.length)].phrase;
     }
 
     const findSentenceSimple = () => {        
@@ -185,14 +188,20 @@ function Sentences(props) {
     }
 
     const findSentenceStandard = () => {
-        if(clickStandard !== 0 && (props.difficulty === STANDARD || props.difficulty === HARDCORE)){
+        if(clickStandard !== 0 && (props.difficulty === STANDARD || props.difficulty === DIFFICILE)){
             return sentenceStandardNow;
         }
     }
 
-    const findSentenceHardcore = () => {
-        if(clickHardcore !== 0 && props.difficulty === HARDCORE){
-            return sentenceNowHardcore;
+    const findSentenceDifficile = () => {
+        if(clickDifficile !== 0 && props.difficulty === DIFFICILE){
+            return sentenceNowDifficile;
+        }
+    }
+
+    const findSentenceRandom = () => {
+        if(Math.floor(Math.random() * 99) === 1){
+            return ALTERATIONDEFI;
         }
     }
 
@@ -201,11 +210,11 @@ function Sentences(props) {
             case "cadenas-simple":               
                 setLockedSimple(!lockedSimple);                 
                 break;
-            case "cadenas-standard":                 
+            case "cadenas-normal":                 
                 setLockedStandard(!lockedStandard)
                 break;
-            case "cadenas-hardcore":               
-                setLockedHardcore(!lockedHardcore);                 
+            case "cadenas-difficile":               
+                setLockedDifficile(!lockedDifficile);                 
                 break;
             default:
                 console.log("ERREUR");
@@ -220,15 +229,15 @@ function Sentences(props) {
    
     const checkLockedStandard = () => {     
         if(!lockedStandard && clickStandard === 0) return;   
-        if((props.difficulty === STANDARD || props.difficulty === HARDCORE) && clickStandard > 0 ){
-            return <img className="cadenas-standard" src={lockedStandard && clickStandard > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
+        if((props.difficulty === STANDARD || props.difficulty === DIFFICILE) && clickStandard > 0 ){
+            return <img className="cadenas-normal" src={lockedStandard && clickStandard > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
         }
     }
 
-    const checkLockedHardcore = () => {     
-        if(!lockedHardcore && clickHardcore === 0) return;   
-        if(props.difficulty === HARDCORE && clickHardcore > 0 ){
-            return <img className="cadenas-hardcore" src={lockedHardcore && clickHardcore > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
+    const checkLockedDifficile = () => {     
+        if(!lockedDifficile && clickDifficile === 0) return;   
+        if(props.difficulty === DIFFICILE && clickDifficile > 0 ){
+            return <img className="cadenas-difficile" src={lockedDifficile && clickDifficile > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
         }
     }
 
@@ -241,11 +250,14 @@ function Sentences(props) {
                 </p>
                 <p className="tarkov-text">
                     {findSentenceStandard()} 
-                    {checkLockedStandard()}
+                    {checkLockedStandard()}                    
+                </p>
+                <p className="tarkov-text-random">
+                    {findSentenceRandom()}
                 </p>
                 <p className="tarkov-text-defi">
-                    {findSentenceHardcore()}
-                    {checkLockedHardcore()}
+                    {findSentenceDifficile()}
+                    {checkLockedDifficile()}
                 </p>
                 <Button variant="primary" className="btn-tarkov" onClick={rollSentence.bind(this)}>LANCER</Button>
             </div>

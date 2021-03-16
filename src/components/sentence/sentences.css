@@ -31,6 +31,17 @@
     -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
 }
 
+.tarkov-text-random{
+    text-transform:uppercase ;
+    font-family: FontTarkov;
+    color: red;
+    
+    font-size: 15px;
+    text-shadow: black 0px 0px 5px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
+}
+
 
 .cadenas-simple{
     height:25px;
@@ -38,13 +49,13 @@
     margin-left: 10px;
 }
 
-.cadenas-standard{ 
+.cadenas-normal{ 
     height:25px;
     margin-bottom: 5px;
     margin-left: 10px;
 }
 
-.cadenas-hardcore{
+.cadenas-difficile{
     height:15px;
     margin-bottom: 5px;
     margin-left: 10px;

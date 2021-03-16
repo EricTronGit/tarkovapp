@@ -25,7 +25,7 @@ function Difficulty(props) {
                     <Dropdown.Menu className="dropdown-tarkov">
                         <Dropdown.Item eventKey="Simple">Simple</Dropdown.Item> 
                         <Dropdown.Item eventKey="Standard">Standard</Dropdown.Item>                                    
-                        <Dropdown.Item eventKey="Hardcore">Hardcore</Dropdown.Item>
+                        <Dropdown.Item eventKey="Difficile">Difficile</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>  
