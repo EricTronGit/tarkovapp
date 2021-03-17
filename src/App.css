@@ -22,10 +22,24 @@
 }
 
 .navbar{
-  border-bottom:solid black 1px;
   width: 100%;
   height: 5%;
   background-color:rgba(0, 0, 0, 0.40);
+}
+
+.btn-link-custom,.btn-link-custom:focus{
+  text-transform: uppercase;
+  color: #7E7055 !important;
+  text-shadow: black 2px 0 5px;
+  font-family: FontTarkov;
+  box-shadow: none !important;
+  background: none !important;
+  border: none !important;
+  margin-bottom: 5px;
+}
+
+.text-modal{
+  font-family: FontTarkov;
 }
 
 main{
@@ -33,10 +47,14 @@ main{
 }
 
 .boxSentenceDifficulty{
-  margin-top: 11%;
-  background-color: rgba(197, 197, 197, 0.50);
-  padding-bottom: 1%;
-  border: solid black ;
+  margin-top: 8%;
+  padding-bottom: 3%;
+  padding-top: 3%;
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur( 4.5px );
+  -webkit-backdrop-filter: blur( 4.5px );
+  border-radius: 10px;
 }
 
 #root {
@@ -44,7 +62,7 @@ main{
 }
 
 .phrase-Challenge{
-  margin-top: 3%;
+  margin-top: 2%;
   color: #ffffff;
   font-size: 40px;
 }

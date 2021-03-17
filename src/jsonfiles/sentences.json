@@ -100,6 +100,9 @@
         },
         {
             "phrase" : "Ne porte pas dispositif audio"
+        },
+        {
+            "phrase" : "Tue un PMC aveuglé"
         }
     ]
 }

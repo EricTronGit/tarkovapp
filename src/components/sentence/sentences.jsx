@@ -303,7 +303,7 @@ function Sentences(props) {
     }
    
     const checkLockedStandard = () => {     
-        if(!lockedStandard && clickStandard === 0) return;   
+        if(!lockedStandard && clickStandard === 0) return;
         if((props.difficulty === STANDARD || props.difficulty === DIFFICILE || props.difficulty === HARDCORE) && clickStandard > 0 ){
             return <img className="cadenas-normal" src={lockedStandard && clickStandard > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
         }
@@ -311,7 +311,7 @@ function Sentences(props) {
 
     const checkLockedDifficile = () => {     
         if(!lockedDifficile && clickDifficile === 0) return;   
-        if((props.difficulty === STANDARD || props.difficulty === DIFFICILE || props.difficulty === HARDCORE ) && clickDifficile > 0 ){
+        if((props.difficulty === DIFFICILE || props.difficulty === HARDCORE ) && clickDifficile > 0 ){
             return <img className="cadenas-difficile" src={lockedDifficile && clickDifficile > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
         }
     }
