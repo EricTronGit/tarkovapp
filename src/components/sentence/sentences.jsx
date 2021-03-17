@@ -2,6 +2,7 @@ import './sentences.css';
 import armes from "../../jsonfiles/armes.json"
 import sentences from "../../jsonfiles/sentences.json"
 import maps from "../../jsonfiles/maps.json"
+import hardcore from "../../jsonfiles/hardcore.json"
 import React, {
     useEffect
 } from 'react';
@@ -24,10 +25,14 @@ import ReserveWallpaper from '../../asset/wallpaperReserve.png';
 
 
 
-function Sentences(props) {
-    const DIFFICILE = "Difficile";
-    const STANDARD = "Standard";
+function Sentences(props) {    
+    
     const SIMPLE = "Simple";
+    const STANDARD = "Standard";
+    const DIFFICILE = "Difficile";
+    const HARDCORE = "Hardcore";
+
+    let mapNow;
 
     //TODO faire une phrase en français plus mieux !!! 
     const ALTERATIONDEFI = "Fais - 1 à ta classe d'armure et - 1 à ta classe de casque";
@@ -37,6 +42,15 @@ function Sentences(props) {
     let [sentencesArrayStandardArmures, setSentencesArrayStandardArmures] = useState([]);
     let [sentencesArrayStandardCasque, setSentencesArrayStandardCasque] = useState([]);
     let [sentencesArrayDifficile, setSentencesArrayDifficile] = useState([]);
+    
+    let [sentencesArrayHardcoreDouanes, setSentencesArrayHardcoreDouanes] = useState([]);
+    let [sentencesArrayHardcoreBois, setSentencesArrayHardcoreBois] = useState([]);
+    let [sentencesArrayHardcoreEchangeur, setSentencesArrayHardcoreEchangeur] = useState([]);
+    let [sentencesArrayHardcoreLittoral, setSentencesArrayHardcoreLittoral] = useState([]);
+    let [sentencesArrayHardcoreLabs, setSentencesArrayHardcoreLabs] = useState([]);
+    let [sentencesArrayHardcoreUsine, setSentencesArrayHardcoreUsine] = useState([]);
+    let [sentencesArrayHardcoreBaseMilitaire, setSentencesArrayHardcoreBaseMilitaire] = useState([]);
+
 
     let [arrayWeapons, setArrayWeapons] = useState([]);
     let [arrayMaps, setArrayMaps] = useState([]);
@@ -44,14 +58,17 @@ function Sentences(props) {
     let [clickSimple, setClickSimple] = useState(0);
     let [clickStandard, setClickStandard] = useState(0);
     let [clickDifficile, setClickDifficile] = useState(0);
+    let [clickHardcore, setClickHardcore] = useState(0);
 
     let [sentenceSimpleNow, setSentenceSimpleNow] = useState([]);
     let [sentenceStandardNow, setSentenceStandardNow] = useState([]);
     let [sentenceNowDifficile, setSentenceNowDifficile] = useState([]);
+    let [sentenceNowHardcore, setSentenceNowHardcore] = useState([]);
 
     let [lockedSimple, setLockedSimple] = useState(false);
     let [lockedStandard, setLockedStandard] = useState(false);
     let [lockedDifficile, setLockedDifficile] = useState(false);
+    let [lockedHardcore, setLockedHardcore] = useState(false);
 
     let [imgLabs, setImgLabs] = useState();
     let [imgReverve, setImgReverve] = useState();
@@ -63,13 +80,14 @@ function Sentences(props) {
     
     useEffect(() => initialize(),[]);
     useEffect(() => preloadImage(),[]);
+    useEffect(() => initializeDefi(), []);
 
     const initialize = () => {
         setSentencesArrayBeginning(sentences.debut);
         setSentencesArrayMiddle(sentences.middle);
         setSentencesArrayStandardArmures(sentences.standardArmures);
         setSentencesArrayStandardCasque(sentences.standardCasque);
-        setSentencesArrayDifficile(sentences.difficile);
+        setSentencesArrayDifficile(sentences.difficile);        
         setArrayWeapons(armes.armes);
         setArrayMaps(maps.maps);
         setSentenceSimpleNow("Clique sur \"LANCER\" pour génerer un challenge");
@@ -85,13 +103,23 @@ function Sentences(props) {
         setImgInterchange(InterchangeWallpaper);
     }
 
-    const rollSentence = () => {
+    const initializeDefi = () => {
+        setSentencesArrayHardcoreDouanes(hardcore.douanes);
+        setSentencesArrayHardcoreBois(hardcore.bois);
+        setSentencesArrayHardcoreEchangeur(hardcore.echangeur);
+        setSentencesArrayHardcoreLittoral(hardcore.littoral);
+        setSentencesArrayHardcoreLabs(hardcore.labs);
+        setSentencesArrayHardcoreUsine(hardcore.usine);
+        setSentencesArrayHardcoreBaseMilitaire(hardcore.basemilitaire);
+    }
+
+    const rollSentence = () => {       
         createSentence();
     }
 
-    const changeBackground = (map) => {
+    const changeBackground = (mapNow) => {
         const monImage = new Image();        
-        switch (map) {
+        switch (mapNow) {
             case "Bois":                
                 monImage.src = imgWoods;         
                 break;
@@ -134,6 +162,8 @@ function Sentences(props) {
                 return sentenceStandard();
             case DIFFICILE:
                 return sentenceDifficile();   
+            case HARDCORE:
+                return sentenceHardcore(); 
             default:
                 console.log("ERREUR");
                 break;
@@ -164,9 +194,45 @@ function Sentences(props) {
         }
     }
 
-    const createSentenceSimpleNow = () => {
-        let mapNow = arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom;
-        changeBackground(mapNow);
+    const sentenceHardcore = () => {
+        sentenceDifficile();   
+        let arrayMapeu;
+        setClickHardcore(clickHardcore + 1);  
+        if(!lockedSimple){
+            switch(mapNow){
+                case "Douanes":                     
+                    arrayMapeu = sentencesArrayHardcoreDouanes;                  
+                    break;
+                case "Bois": 
+                    arrayMapeu = sentencesArrayHardcoreBois; 
+                    break;
+                case "Labs":   
+                    arrayMapeu = sentencesArrayHardcoreLabs;              
+                    break;
+                case "Base militaire":   
+                    arrayMapeu = sentencesArrayHardcoreBaseMilitaire;                 
+                    break;
+                case "Littoral": 
+                    arrayMapeu = sentencesArrayHardcoreLittoral;                       
+                    break;
+                case "Usine": 
+                    arrayMapeu = sentencesArrayHardcoreUsine;                       
+                    break;
+                case "Echangeur": 
+                    arrayMapeu = sentencesArrayHardcoreEchangeur;                        
+                    break;
+                default:
+                    setSentenceNowHardcore("");
+                    break;
+            }
+            setSentenceNowHardcore(arrayMapeu[Math.floor(Math.random() * arrayMapeu.length)].phrase);                           
+        }
+        
+    }
+
+    const createSentenceSimpleNow = () => {    
+        mapNow = arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom;
+        changeBackground(mapNow); 
         return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)].phrase +
         mapNow +
         sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)].phrase +
@@ -183,19 +249,25 @@ function Sentences(props) {
         return sentencesArrayDifficile[Math.floor(Math.random() * sentencesArrayDifficile.length)].phrase;
     }
 
-    const findSentenceSimple = () => {        
+    const findSentenceSimple = () => {  
         return sentenceSimpleNow;        
     }
 
     const findSentenceStandard = () => {
-        if(clickStandard !== 0 && (props.difficulty === STANDARD || props.difficulty === DIFFICILE)){
+        if(clickStandard !== 0 && (props.difficulty === STANDARD || props.difficulty === DIFFICILE || props.difficulty === HARDCORE)){
             return sentenceStandardNow;
         }
     }
 
     const findSentenceDifficile = () => {
-        if(clickDifficile !== 0 && props.difficulty === DIFFICILE){
+        if(clickDifficile !== 0 && (props.difficulty === DIFFICILE || props.difficulty === HARDCORE)){
             return sentenceNowDifficile;
+        }
+    }
+
+    const findSentenceHardcore = () => {
+        if(clickDifficile !== 0 && ( props.difficulty === HARDCORE)){
+            return sentenceNowHardcore;
         }
     }
 
@@ -216,6 +288,9 @@ function Sentences(props) {
             case "cadenas-difficile":               
                 setLockedDifficile(!lockedDifficile);                 
                 break;
+            case "cadenas-hardcore":               
+                setLockedHardcore(!lockedHardcore);                 
+                break;
             default:
                 console.log("ERREUR");
                 break;
@@ -229,17 +304,18 @@ function Sentences(props) {
    
     const checkLockedStandard = () => {     
         if(!lockedStandard && clickStandard === 0) return;   
-        if((props.difficulty === STANDARD || props.difficulty === DIFFICILE) && clickStandard > 0 ){
+        if((props.difficulty === STANDARD || props.difficulty === DIFFICILE || props.difficulty === HARDCORE) && clickStandard > 0 ){
             return <img className="cadenas-normal" src={lockedStandard && clickStandard > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
         }
     }
 
     const checkLockedDifficile = () => {     
         if(!lockedDifficile && clickDifficile === 0) return;   
-        if(props.difficulty === DIFFICILE && clickDifficile > 0 ){
+        if((props.difficulty === STANDARD || props.difficulty === DIFFICILE || props.difficulty === HARDCORE ) && clickDifficile > 0 ){
             return <img className="cadenas-difficile" src={lockedDifficile && clickDifficile > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
         }
     }
+
 
     return (
         <Col>
@@ -247,6 +323,9 @@ function Sentences(props) {
                 <p className="tarkov-text">
                     {findSentenceSimple()} 
                     {checkLockedSimple()}
+                </p>
+                <p className="tarkov-text-defi">
+                    {findSentenceHardcore()}
                 </p>
                 <p className="tarkov-text">
                     {findSentenceStandard()} 

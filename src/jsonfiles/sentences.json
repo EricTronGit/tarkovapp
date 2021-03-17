@@ -60,10 +60,43 @@
     ],
     "difficile" : [
         {
-            "phrase" : "Tue 3 PMCs dans la tête"
+            "phrase" : "Tue 3 PMCs"
         },
         {
-            "phrase" : "Tue cinq Scavs en dix minutes"
+            "phrase" : "Tue 2 PMCs"
+        },
+        {
+            "phrase" : "Tue 1 PMCs dans la jambe"
+        },
+        {
+            "phrase" : "Tue 1 PMCs dans la tête"
+        },
+        {
+            "phrase" : "Tue 1 PMCs à plus de 100 mètres"
+        },
+        {
+            "phrase" : "Tue 1 PMCs à plus de 150 mètres"
+        },        
+        {
+            "phrase" : "N'utilise pas de viseur"
+        },
+        {
+            "phrase" : "N'utilise pas de dispositif tactique"
+        },
+        {
+            "phrase" : "Utilise un gilet tactique pareballes"
+        },
+        {
+            "phrase" : "Utilise le GSSH-01"
+        },
+        {
+            "phrase" : "Equipe toi d'une visière si le casque le permet"
+        },
+        {
+            "phrase" : "Tue 5 Scavs en 5 minutes"
+        },
+        {
+            "phrase" : "Tue 3 scavs dans les jambes"
         },
         {
             "phrase" : "Ne porte pas dispositif audio"

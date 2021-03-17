@@ -7,6 +7,11 @@ import { Col } from 'react-bootstrap';
 
 function Difficulty(props) {
 
+    const SIMPLE = "Simple";
+    const STANDARD = "Standard";
+    const DIFFICILE = "Difficile";
+    const HARDCORE = "Hardcore"
+
     const [dropdownTitle, setDropdownTitle] = useState("Standard");
 
     const changeDifficulty =  (eventKey) => {
@@ -23,9 +28,10 @@ function Difficulty(props) {
                         {dropdownTitle}
                     </Dropdown.Toggle>
                     <Dropdown.Menu className="dropdown-tarkov">
-                        <Dropdown.Item eventKey="Simple">Simple</Dropdown.Item> 
-                        <Dropdown.Item eventKey="Standard">Standard</Dropdown.Item>                                    
-                        <Dropdown.Item eventKey="Difficile">Difficile</Dropdown.Item>
+                        <Dropdown.Item eventKey={SIMPLE}>{SIMPLE}</Dropdown.Item> 
+                        <Dropdown.Item eventKey={STANDARD}>{STANDARD}</Dropdown.Item>                                    
+                        <Dropdown.Item eventKey={DIFFICILE}>{DIFFICILE}</Dropdown.Item> 
+                        <Dropdown.Item eventKey={HARDCORE}>{HARDCORE}</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </div>  

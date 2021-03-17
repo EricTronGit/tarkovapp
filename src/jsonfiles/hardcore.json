@@ -1,0 +1,38 @@
+{
+    "douanes": [
+        {
+            "phrase": "Rends toi obligatoirement aux Dortoirs"
+        }
+    ],
+    "bois": [
+        {
+            "phrase": "Rends toi obligatoirement cabanes SCAV"
+        }
+    ],
+    "labs": [
+        {
+            "phrase": "Rends toi obligatoirement devant le porte de la RED"
+        }
+    ],
+    "usine": [
+        {
+            "phrase": "Rends toi obligatoirement dans les bureaux"
+        }
+    ],
+    "littoral": [
+        {
+            "phrase": "Rends toi obligatoirement dans le bureau de Sanitar"
+        }
+    ],
+    "basemilitaire": [
+        {
+            "phrase": "Rends toi obligatoirement dans la gare"
+        }
+    ],    
+    "echangeur": [
+        {
+            "phrase": "Rends toi obligatoirement TechLight"
+        }
+    ]
+}
+
