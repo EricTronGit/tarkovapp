@@ -20,6 +20,7 @@ function App() {
   const callback = (chosenDifficulty) => {
      setDifficulty(chosenDifficulty);  
   }
+  
 
   return (
     <div className="App">
@@ -38,7 +39,8 @@ function App() {
               <p className="text-modal">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda itaque eveniet libero vel qui dicta, veniam nihil nostrum in vero eum a ea modi voluptas et maiores ab! Excepturi voluptates pariatur expedita commodi, numquam labore magni quidem quisquam dicta modi, dolore perferendis. Ratione quam, at voluptate eius natus fugit ipsum?</p>
               <p className="text-modal"><u>Un grand merci a :</u><br />
               <span>Ghostwake</span><br />
-              <span>TheGetGet</span></p>
+              <span>TheGetGet</span><br />
+              <span>Razorflak</span></p>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>

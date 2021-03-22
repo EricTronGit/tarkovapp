@@ -7,6 +7,7 @@
   max-width: 100%;  
 }
 
+
 .App-header {
   display: flex;
   flex-direction: column;
@@ -52,8 +53,8 @@ main{
   padding-top: 3%;
   background: rgba(0, 0, 0, 0.3);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur( 4.5px );
-  -webkit-backdrop-filter: blur( 4.5px );
+  backdrop-filter: blur( 8.5px );
+  -webkit-backdrop-filter: blur( 8.5px );
   border-radius: 10px;
 }
 
@@ -96,3 +97,5 @@ footer{
   color: #7E7055;
   text-shadow: black 2px 0 5px;
 }
+
+

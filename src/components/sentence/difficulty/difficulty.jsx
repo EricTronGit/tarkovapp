@@ -3,7 +3,7 @@ import './difficulty.css';
 import React from 'react';
 import { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 function Difficulty(props) {
 
@@ -18,11 +18,15 @@ function Difficulty(props) {
         setDropdownTitle(eventKey);        
         props.difficultySelect(eventKey);
     }   
-    
+
     return (
         <Col>   
             <div className="Difficulty">
-                <p className="white-text">SELECTIONNE UNE DIFFICULTE</p>                        
+                <Row>
+                    <Col className="colAlignRight">
+                <span className="white-text">DIFFICULTE :</span>      
+                </Col>    
+                <Col className="colAlignLeft">             
                 <Dropdown onSelect={changeDifficulty.bind(this)}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic" className="dropdown-tarkov">
                         {dropdownTitle}
@@ -34,6 +38,8 @@ function Difficulty(props) {
                         <Dropdown.Item eventKey={HARDCORE}>{HARDCORE}</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
+                </Col> 
+                </Row>
             </div>  
         </Col> 
                 

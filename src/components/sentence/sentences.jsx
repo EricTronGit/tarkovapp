@@ -15,13 +15,8 @@ import {
 } from 'react-bootstrap';
 import cadenasOpen from '../../asset/cadenasopen.png';
 import cadenasClose from '../../asset/cadenas.png';
-import LabsWallpaper from '../../asset/wallpaperLabs.png';
-import WoodsWallpaper from '../../asset/wallpaperwoods.png';
-import InterchangeWallpaper from '../../asset/wallpaperInterchange.png';
-import CustomsWallpaper from '../../asset/wallpaperCustoms.png';
-import ShorelineWallpaper from '../../asset/wallpaperShoreline.png';
-import FactoryWallpaper from '../../asset/wallpaperFactory.png';
-import ReserveWallpaper from '../../asset/wallpaperReserve.png';
+
+import backgroundSVC from '../../services/backgroundSVC.js'
 
 
 
@@ -51,7 +46,6 @@ function Sentences(props) {
     let [sentencesArrayHardcoreUsine, setSentencesArrayHardcoreUsine] = useState([]);
     let [sentencesArrayHardcoreBaseMilitaire, setSentencesArrayHardcoreBaseMilitaire] = useState([]);
 
-
     let [arrayWeapons, setArrayWeapons] = useState([]);
     let [arrayMaps, setArrayMaps] = useState([]);
 
@@ -69,17 +63,8 @@ function Sentences(props) {
     let [lockedStandard, setLockedStandard] = useState(false);
     let [lockedDifficile, setLockedDifficile] = useState(false);
     let [lockedHardcore, setLockedHardcore] = useState(false);
-
-    let [imgLabs, setImgLabs] = useState();
-    let [imgReverve, setImgReverve] = useState();
-    let [imgCustoms, setImgCustoms] = useState();
-    let [imgShoreline, setImgShoreline] = useState();
-    let [imgFactory, setImgFactory] = useState();
-    let [imgWoods, setImgWoods] = useState();
-    let [imgInterchange, setImgInterchange] = useState();
     
     useEffect(() => initialize(),[]);
-    useEffect(() => preloadImage(),[]);
     useEffect(() => initializeDefi(), []);
 
     const initialize = () => {
@@ -91,16 +76,6 @@ function Sentences(props) {
         setArrayWeapons(armes.armes);
         setArrayMaps(maps.maps);
         setSentenceSimpleNow("Clique sur \"LANCER\" pour génerer un challenge");
-    }
-
-    const preloadImage = () => {
-        setImgLabs(LabsWallpaper);
-        setImgReverve(ReserveWallpaper);
-        setImgCustoms(CustomsWallpaper);
-        setImgShoreline(ShorelineWallpaper);
-        setImgFactory(FactoryWallpaper);
-        setImgWoods(WoodsWallpaper);
-        setImgInterchange(InterchangeWallpaper);
     }
 
     const initializeDefi = () => {
@@ -119,32 +94,7 @@ function Sentences(props) {
 
     const changeBackground = (mapNow) => {
         const monImage = new Image();        
-        switch (mapNow) {
-            case "Bois":                
-                monImage.src = imgWoods;         
-                break;
-            case "Echangeur":               
-                monImage.src = imgInterchange;               
-                break;
-            case "Labs":
-                monImage.src = imgLabs;     
-                break;
-            case "Base militaire":
-                monImage.src = imgReverve;   
-                break;
-            case "Douanes":
-                monImage.src = imgCustoms;
-                break;
-            case "Littoral":
-                monImage.src = imgShoreline;
-                break;
-            case "Usine":
-                monImage.src = imgFactory;
-                break;                
-            default:
-                console.log("ERREUR");
-
-        }
+        monImage.src = backgroundSVC.changeBackground(mapNow);
         monImage.onload = function(){
             document.body.style.backgroundImage = "url("+monImage.src+")";
         }      
@@ -179,7 +129,7 @@ function Sentences(props) {
     }
 
     const sentenceStandard = () => {
-        sentenceSimple()
+        sentenceSimple();
         setClickStandard(clickStandard + 1);
         if(!lockedStandard){            
             setSentenceStandardNow(createSentenceStandardNow());

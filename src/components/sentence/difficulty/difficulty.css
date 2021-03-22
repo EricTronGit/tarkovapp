@@ -19,3 +19,16 @@
     font-family: FontTarkov;
     box-shadow: black 0px 0px 5px;
 }
+
+.rowDifficulty{
+    width: 100%;
+}
+
+.colAlignRight{
+    text-align: right;
+}
+
+.colAlignLeft{
+    margin-top: 6px;
+    text-align: left;
+}
