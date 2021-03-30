@@ -13,3 +13,7 @@ Small responsive. (Still working on it)
 Add the difficulty (Hardcore). this one bring you one more challenge to achieve during your raid.
 Change all the class i create to function
 Add the full responsive APP
+
+## V 0.1.0
+
+redesign of the user interface.

@@ -20,29 +20,28 @@ function Difficulty(props) {
     }   
 
     return (
-        <Col>   
             <div className="Difficulty">
                 <Row>
-                    <Col className="colAlignRight">
-                <span className="white-text">DIFFICULTE :</span>      
-                </Col>    
-                <Col className="colAlignLeft">             
-                <Dropdown onSelect={changeDifficulty.bind(this)}>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic" className="dropdown-tarkov">
-                        {dropdownTitle}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu className="dropdown-tarkov">
-                        <Dropdown.Item eventKey={SIMPLE}>{SIMPLE}</Dropdown.Item> 
-                        <Dropdown.Item eventKey={STANDARD}>{STANDARD}</Dropdown.Item>                                    
-                        <Dropdown.Item eventKey={DIFFICILE}>{DIFFICILE}</Dropdown.Item> 
-                        <Dropdown.Item eventKey={HARDCORE}>{HARDCORE}</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                </Col> 
+                    <Col className="text-md-left py-2 px-4">
+                        <span className="label">
+                            Choisissez une difficultée
+                        </span>
+                    </Col>
+                    <Col md={5} className="px-0">
+                        <Dropdown onSelect={changeDifficulty.bind(this)}>
+                            <Dropdown.Toggle id="dropdown-basic" variant="" className="btn-block dropdown-tarkov">
+                                {dropdownTitle}
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu className="dropdown-tarkov w-100 text-center">
+                                <Dropdown.Item eventKey={SIMPLE}>{SIMPLE}</Dropdown.Item>
+                                <Dropdown.Item eventKey={STANDARD}>{STANDARD}</Dropdown.Item>
+                                <Dropdown.Item eventKey={DIFFICILE}>{DIFFICILE}</Dropdown.Item>
+                                <Dropdown.Item eventKey={HARDCORE}>{HARDCORE}</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </Col>
                 </Row>
-            </div>  
-        </Col> 
-                
+            </div>
         );
     }
 

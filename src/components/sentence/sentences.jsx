@@ -6,12 +6,13 @@ import hardcore from "../../jsonfiles/hardcore.json"
 import React, {
     useEffect
 } from 'react';
-import Button from 'react-bootstrap/Button';
 import {
-    useState
+    useState,
+    forwardRef,
+    useImperativeHandle
 } from 'react';
 import {
-    Col
+    Col, Container, Row
 } from 'react-bootstrap';
 import cadenasOpen from '../../asset/cadenasopen.png';
 import cadenasClose from '../../asset/cadenas.png';
@@ -20,8 +21,14 @@ import backgroundSVC from '../../services/backgroundSVC.js'
 
 
 
-function Sentences(props) {    
-    
+const Sentences = forwardRef((props, ref) => {
+
+    useImperativeHandle(ref, () => ({
+        rollSentence() {
+            createSentence();
+        }
+    }));
+
     const SIMPLE = "Simple";
     const STANDARD = "Standard";
     const DIFFICILE = "Difficile";
@@ -75,7 +82,7 @@ function Sentences(props) {
         setSentencesArrayDifficile(sentences.difficile);        
         setArrayWeapons(armes.armes);
         setArrayMaps(maps.maps);
-        setSentenceSimpleNow("Clique sur \"LANCER\" pour génerer un challenge");
+        setSentenceSimpleNow();
     }
 
     const initializeDefi = () => {
@@ -86,10 +93,6 @@ function Sentences(props) {
         setSentencesArrayHardcoreLabs(hardcore.labs);
         setSentencesArrayHardcoreUsine(hardcore.usine);
         setSentencesArrayHardcoreBaseMilitaire(hardcore.basemilitaire);
-    }
-
-    const rollSentence = () => {       
-        createSentence();
     }
 
     const changeBackground = (mapNow) => {
@@ -267,31 +270,39 @@ function Sentences(props) {
     }
 
 
-    return (
-        <Col>
-            <div className="Sentence">
-                <p className="tarkov-text">
-                    {findSentenceSimple()} 
-                    {checkLockedSimple()}
-                </p>
-                <p className="tarkov-text-defi">
-                    {findSentenceHardcore()}
-                </p>
-                <p className="tarkov-text">
-                    {findSentenceStandard()} 
-                    {checkLockedStandard()}                    
-                </p>
-                <p className="tarkov-text-random">
-                    {findSentenceRandom()}
-                </p>
-                <p className="tarkov-text-defi">
-                    {findSentenceDifficile()}
-                    {checkLockedDifficile()}
-                </p>
-                <Button variant="primary" className="btn-tarkov" onClick={rollSentence.bind(this)}>LANCER</Button>
-            </div>
-        </Col>
-    );
-}
+    const findSentenceSimpleValue = findSentenceSimple();
+
+    if(findSentenceSimpleValue) {
+        return (
+            <Container className="boxSentence my-3 my-lg-5">
+                <Row>
+                    <Col>
+                        <div className="Sentence">
+                            <p className="tarkov-text">
+                                {findSentenceSimple()}
+                                {checkLockedSimple()}
+                            </p>
+                            <p className="tarkov-text-defi">
+                                {findSentenceHardcore()}
+                            </p>
+                            <p className="tarkov-text">
+                                {findSentenceStandard()}
+                                {checkLockedStandard()}
+                            </p>
+                            <p className="tarkov-text-random">
+                                {findSentenceRandom()}
+                            </p>
+                            <p className="tarkov-text-defi">
+                                {findSentenceDifficile()}
+                                {checkLockedDifficile()}
+                            </p>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    }
+    return null;
+});
   
 export default Sentences;

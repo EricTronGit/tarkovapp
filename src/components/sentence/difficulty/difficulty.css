@@ -1,34 +1,52 @@
-.white-text{
-    font-family: FontTarkov;
-    color: #7E7055;
-    font-size: 30px;
-    text-shadow: black 2px 0 5px;
-    text-shadow: black 0px 0px 5px;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
+.dropdown-tarkov {
+    min-height: 66px;
+    background-color: var(--background);
+    border-left: 1px solid var(--border-color);
+    font-size: 28px;
+    color: #fff;
+    font-family: "Bender", serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border-radius: 0;
 }
 
-.Difficulty{
-    
+.dropdown-tarkov:active,
+.dropdown-tarkov:focus,
+.dropdown-tarkov:hover {
+    box-shadow: none;
+    outline: none !important;
+    color: #fff;
+    background-color: var(--background);
 }
 
-.dropdown-tarkov{
-    color: black !important;
-    background-color :#7E7055 !important;
-    border-color: #7E7055 !important;
-    font-family: FontTarkov;
-    box-shadow: black 0px 0px 5px;
+.dropdown-toggle {
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:active,
+.dropdown-toggle:focus {
+    color: #fff;
+    filter: brightness(90%);
+}
+
+.dropdown-toggle::after {
+    content:">";
+    vertical-align: 0;
+    transform: rotate(90deg);
+    margin-left: 1rem;
+    border: 0;
+}
+
+.dropdown-menu {
+    border-radius: 10px;
+}
+
+.dropdown-item {
+    color: #fff;
 }
 
 .rowDifficulty{
     width: 100%;
-}
-
-.colAlignRight{
-    text-align: right;
-}
-
-.colAlignLeft{
-    margin-top: 6px;
-    text-align: left;
 }
