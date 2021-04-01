@@ -1,76 +1,92 @@
+.boxSentence {
+    text-align: left;
+    border-radius: 10px;
+    background-color: var(--background);
+    border: 1px solid var(--border-color);
+}
+
 .Sentence{
-    margin-top: 4%;
+    display: grid;
+    row-gap: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    font-family: "Bender", serif;
+    text-transform: uppercase;
 }
 
-.btn-tarkov{
-    color: black !important;
-    background-color :#7E7055 !important;
-    border-color: #7E7055 !important;
-    font-family: FontTarkov;
-    box-shadow: black 0px 0px 5px;
+.Sentence p {
+    margin-bottom: 0;
 }
 
-.tarkov-text{
-    text-transform:uppercase ;
-    font-family: FontTarkov;
-    color: #7E7055;
-    font-size: 30px;
-    text-shadow: black 0px 0px 5px;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
+.Sentence .tarkov-text:not(:empty)::before {
+    content:"X";
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: 1px;
+    width: 33px;
+    height: 33px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.Sentence .tarkov-text:not(:empty):nth-child(1)::before {
+    content:"1";
+}
+
+.Sentence .tarkov-text:not(:empty):nth-child(3)::before {
+    content:"2";
+}
+
+.boxSentence .tarkov-text {
+    font-size: 24px;
+    letter-spacing: 0.04em;
+}
+
+.tarkov-text-random,
+.tarkov-text-defi{
+    padding-left: 43px;
+    font-size: 18px;
+}
+
+.tarkov-text-random:not(:empty)::before,
+.tarkov-text-defi:not(:empty)::before {
+    content:"+ ";
 }
 
 .tarkov-text-defi{
-    text-transform:uppercase ;
-    font-family: FontTarkov;
-    color: #7E7055;
-    
-    font-size: 20px;
-    text-shadow: black 0px 0px 5px;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
+    color: #ffe437;
 }
 
 .tarkov-text-random{
-    text-transform:uppercase ;
-    font-family: FontTarkov;
-    color: red;
-    
-    font-size: 15px;
-    text-shadow: black 0px 0px 5px;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgb(0, 0, 0, 0.45);
+    color: var(--primary);
 }
 
-
 .cadenas-simple{
-    height:25px;
+    height: 25px;
     margin-bottom: 5px;
     margin-left: 10px;
 }
 
 .cadenas-normal{ 
-    height:25px;
+    height: 25px;
     margin-bottom: 5px;
     margin-left: 10px;
 }
 
 .cadenas-difficile{
-    height:15px;
+    height: 15px;
     margin-bottom: 5px;
     margin-left: 10px;
 }
 
 .cadenas-hardcore{
-    height:15px;
+    height: 15px;
     margin-bottom: 5px;
     margin-left: 10px;
 }
-
-
-
-@font-face{
-    font-family: "FontTarkov";
-    src: url(".../../../../asset/bender.black.otf") format("truetype");
-  }
-  

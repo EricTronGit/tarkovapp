@@ -20,22 +20,22 @@
     ],
     "standardArmures": [
         {
-            "phrase" : " Equipe toi d'une armure classe 6 "
+            "phrase" : "Equipe toi d'une armure classe 6 "
         },
         {
-            "phrase" : " Equipe toi d'une armure classe 5 "
+            "phrase" : "Equipe toi d'une armure classe 5 "
         },
         {
-            "phrase" : " Equipe toi d'une armure classe 4 "
+            "phrase" : "Equipe toi d'une armure classe 4 "
         },
         {
-            "phrase" : " Equipe toi d'une armure classe 3 "
+            "phrase" : "Equipe toi d'une armure classe 3 "
         },
         {
-            "phrase" : " Equipe toi d'une armure classe 2 "
+            "phrase" : "Equipe toi d'une armure classe 2 "
         },
         {
-            "phrase" : " Equipe toi d'une armure classe 1 "
+            "phrase" : "Equipe toi d'une armure classe 1 "
         }
     ],
     "standardCasque": [
