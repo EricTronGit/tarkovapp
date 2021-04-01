@@ -1,61 +1,121 @@
+@font-face{
+  font-family: "Bender";
+  font-weight: normal;
+  src: url("./asset/Bender.woff") format("woff");
+}
+@font-face{
+  font-family: "Bender";
+  font-weight: bold;
+  src: url("./asset/Bender-Bold.woff") format("woff");
+}
+
+:root {
+  --primary: #E9391C;
+  --primary-darken: #bf2209;
+  --background: rgba(47, 46, 42, 0.95);
+  --border-color: #211F19;
+  --text-color: #BFBEB9;
+}
+
 .App {
   text-align: center;
-  width: 100%;  
+  width: 100%;
+  font-family: "Bender", serif;
+  color: var(--text-color);
 }
-
-.App-logo {
-  max-width: 100%;  
-}
-
 
 .App-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 18px;
   color: white;
   width: 100%;
+  background-color: var(--background);
+}
+
+.App-logo {
+  max-width: 100%;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.navbar{
-  width: 100%;
-  height: 5%;
-  background-color:rgba(0, 0, 0, 0.40);
+.btn-link-custom {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  box-shadow: none;
+  background: none;
+  border: 0;
 }
 
-.btn-link-custom,.btn-link-custom:focus{
+.btn-link-custom:hover,
+.btn-link-custom:focus {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.btn-primary,
+.btn-tarkov{
+  color: black;
+  font-size: 18px;
+  font-family: "Bender", serif;
+  letter-spacing: 0.01em;
+  padding: 0.4rem 2rem 0.5rem;
+  background-color :#7E7055;
   text-transform: uppercase;
-  color: #7E7055 !important;
-  text-shadow: black 2px 0 5px;
-  font-family: FontTarkov;
-  box-shadow: none !important;
-  background: none !important;
-  border: none !important;
-  margin-bottom: 5px;
+  border: 0;
+}
+
+.show>.btn-primary.dropdown-toggle,
+.btn-primary:active,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-tarkov:hover {
+  border: 0;
+  background-color : #564937;
+  outline: none;
+  box-shadow: none;
+}
+
+.btn-launch {
+  height: 66px;
+  color: #fff;
+  background-color: var(--primary);
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  border-radius: 0 9px 9px 0;
+}
+
+.btn-launch:active,
+.btn-launch:focus,
+.btn-launch:hover {
+  background-color: var(--primary-darken);
+}
+.btn-launch:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.2rem var(--primary);
+  background-color: var(--primary-darken);
+}
+
+.dropdown-toggle {
+  padding: 0.4rem 1rem 0.5rem;
 }
 
 .text-modal{
-  font-family: FontTarkov;
+  font-family: FontTarkov, serif;
 }
 
-main{
-  margin-top: 10%;
-}
-
-.boxSentenceDifficulty{
-  margin-top: 8%;
-  padding-bottom: 3%;
-  padding-top: 3%;
-  background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur( 8.5px );
-  -webkit-backdrop-filter: blur( 8.5px );
+.boxDifficultyAndLaunch{
   border-radius: 10px;
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  font-size: 28px;
+  line-height: 1.8;
 }
 
 #root {
@@ -73,29 +133,52 @@ main{
   font-size: 20px;
 }
 
-.tarkov-text{
-  text-transform:uppercase ;
-  font-family: FontTarkov;
-  color: #7E7055;
-  font-size: 30px;
-  text-shadow: black 2px 0 5px;
-}
-
 footer{
-  border-top:solid black 1px;
   position: fixed;
   width: 100%;
   bottom: 0;
-  margin-top: 5%;
-  background-color:rgba(0, 0, 0, 0.25);
-}
-.textFooter{
-  font-size: 10px;
-  margin: auto;
-  text-transform:uppercase ;
-  font-family: FontTarkov;
-  color: #7E7055;
-  text-shadow: black 2px 0 5px;
+  padding: 0.66rem;
 }
 
+.textFooter {
+  margin: 0;
+  font-family: "Bender", serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+}
 
+.textFooter a {
+  color: #fff;
+}
+
+@media screen and (max-width: 992px) {
+  .label {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 100vw;
+  }
+
+  .dropdown-tarkov {
+    border-left: 0 !important;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .btn-launch {
+    border-radius: 0 0 9px 9px;
+  }
+
+  .boxSentence .tarkov-text-random,
+  .boxSentence .tarkov-text-defi {
+    padding-left: 0;
+  }
+}
