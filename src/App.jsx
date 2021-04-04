@@ -13,6 +13,11 @@ function App() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
+    const [showMention, setShowMention] = useState(false);
+
+    const handleCloseMention = () => setShowMention(false);
+    const handleShowMention = () => setShowMention(true);
 
 
     const [difficulty, setDifficulty] = useState("Standard");
@@ -41,11 +46,9 @@ function App() {
                                     <Modal.Title>A Propos</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                    <p className="text-modal">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                        Assumenda itaque eveniet libero vel qui dicta, veniam nihil nostrum in vero eum
-                                        a ea modi voluptas et maiores ab! Excepturi voluptates pariatur expedita
-                                        commodi, numquam labore magni quidem quisquam dicta modi, dolore perferendis.
-                                        Ratione quam, at voluptate eius natus fugit ipsum?</p>
+                                    <p className="text-modal">Ce site vous permet de lancer un aléatoire pour savoir avec quel équipement et quelles missions supplémentaire vous allez devoir accomplir durant votre RAID.</p>
+                                    <p className="text-modal">Vous pouvez "bloquer" certaines phrases pour qu'elles ne bougent plus lors de vos prochains lancées.</p>
+                                    <p className="text-modal">Ce site est en parti fait sur ma chaîne Twitch <a href="https://www.twitch.tv/erryontv" target="_blank" rel="noreferrer">ErryonTV</a>. N'hésitez pas à me faire des retours ou me de me proposer des ajouts.</p>
                                     <p className="text-modal"><u>Un grand merci a :</u><br/>
                                         <span>Ghostwake</span><br/>
                                         <span>TheGetGet</span><br/>
@@ -57,9 +60,23 @@ function App() {
                                     </Button>
                                 </Modal.Footer>
                             </Modal>
-                            <Button variant="link btn-link-custom" onClick={handleShow}>
+                            <Button variant="link btn-link-custom" onClick={handleShowMention}>
                                 Mentions Légales
                             </Button>
+                            <Modal show={showMention} onHide={handleCloseMention} animation={false}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Mentions Légales</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <p className="text-modal">Ce site n'est en aucuns cas en partenariat avec Battlestate Games. Il est fait par des fans pour la communauté d'Escape From Tarkov.</p>
+                                    <p className="text-modal"><b>Tout droit reservés à Battlestate Games.</b></p>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleCloseMention}>
+                                        Fermer
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
                     </Navbar.Collapse>
                 </Navbar>
             </header>
@@ -88,8 +105,8 @@ function App() {
                 <Container fluid>
                     <Row>
                         <Col>
-                            <p className="textFooter">Copyright <a href="https://www.twitch.tv/erryontv" target="_blank"
-                                                                   rel="noreferrer">ErryonTV</a> version 0.1.0 ALPHA</p>
+                            <p className="textFooter">Copyright
+                             <a href="https://www.twitch.tv/erryontv" target="_blank" rel="noreferrer">ErryonTV</a> version 0.1.0 BETA avec l'aide de <a href="https://github.com/francoispeyret" target="_blank" rel="noreferrer">Meeshoot</a></p>
                         </Col>
                     </Row>
                 </Container>
