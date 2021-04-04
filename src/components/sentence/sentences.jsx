@@ -16,11 +16,8 @@ import {
 } from 'react-bootstrap';
 import cadenasOpen from '../../asset/cadenasopen.png';
 import cadenasClose from '../../asset/cadenas.png';
-
 import backgroundSVC from '../../services/backgroundSVC.js'
 import SentencesSVC from '../../services/sentencesSVC.js'
-
-
 
 const Sentences = forwardRef((props, ref) => {
 
@@ -45,22 +42,22 @@ const Sentences = forwardRef((props, ref) => {
     let sentencesArrayDifficile = sentences.difficile
     let sentencesArrayStandardArmures = sentences.standardArmures;
     let sentencesArrayStandardCasque = sentences.standardCasque;
-    
-    let [sentencesArrayHardcoreDouanes, setSentencesArrayHardcoreDouanes] = useState([]);
-    let [sentencesArrayHardcoreBois, setSentencesArrayHardcoreBois] = useState([]);
-    let [sentencesArrayHardcoreEchangeur, setSentencesArrayHardcoreEchangeur] = useState([]);
-    let [sentencesArrayHardcoreLittoral, setSentencesArrayHardcoreLittoral] = useState([]);
-    let [sentencesArrayHardcoreLabs, setSentencesArrayHardcoreLabs] = useState([]);
-    let [sentencesArrayHardcoreUsine, setSentencesArrayHardcoreUsine] = useState([]);
-    let [sentencesArrayHardcoreBaseMilitaire, setSentencesArrayHardcoreBaseMilitaire] = useState([]);
 
-    let [arrayWeapons, setArrayWeapons] = useState([]);
-    let [arrayMaps, setArrayMaps] = useState([]);
+    let arrayWeapons = armes.armes;
+    let arrayMaps = maps.maps;
 
-    let [clickSimple, setClickSimple] = useState(0);
-    let [clickStandard, setClickStandard] = useState(0);
-    let [clickDifficile, setClickDifficile] = useState(0);
-    let [clickHardcore, setClickHardcore] = useState(0);
+    let sentencesArrayHardcoreDouanes = hardcore.douanes;
+    let sentencesArrayHardcoreBois = hardcore.bois;
+    let sentencesArrayHardcoreEchangeur = hardcore.echangeur;
+    let sentencesArrayHardcoreLittoral = hardcore.littoral;
+    let sentencesArrayHardcoreLabs = hardcore.labs;
+    let sentencesArrayHardcoreUsine = hardcore.usine;
+    let sentencesArrayHardcoreBaseMilitaire = hardcore.basemilitaire;
+
+    let clickSimple = 0;
+    let clickStandard = 0;
+    let clickDifficile = 0;
+    let clickHardcore = 0;
 
     let [sentenceSimpleNow, setSentenceSimpleNow] = useState([]);
     let [sentenceStandardNow, setSentenceStandardNow] = useState([]);
@@ -73,23 +70,10 @@ const Sentences = forwardRef((props, ref) => {
     let [lockedHardcore, setLockedHardcore] = useState(false);
     
     useEffect(() => initialize(),[]);
-    useEffect(() => initializeDefi(), []);
 
     const initialize = () => {      
-        setArrayWeapons(armes.armes);
-        setArrayMaps(maps.maps);
         setSentenceSimpleNow();
-    }
-
-    const initializeDefi = () => {
-        setSentencesArrayHardcoreDouanes(hardcore.douanes);
-        setSentencesArrayHardcoreBois(hardcore.bois);
-        setSentencesArrayHardcoreEchangeur(hardcore.echangeur);
-        setSentencesArrayHardcoreLittoral(hardcore.littoral);
-        setSentencesArrayHardcoreLabs(hardcore.labs);
-        setSentencesArrayHardcoreUsine(hardcore.usine);
-        setSentencesArrayHardcoreBaseMilitaire(hardcore.basemilitaire);
-    }
+    }  
 
     const changeBackground = (mapNow) => {
         const monImage = new Image();        
@@ -123,7 +107,7 @@ const Sentences = forwardRef((props, ref) => {
     }
     
     const sentenceSimple = () => {
-        setClickSimple(clickSimple + 1);
+        clickSimple = clickSimple + 1;
         if(!lockedSimple){
             setSentenceSimpleNow(SentencesSVC.createSentenceSimpleNow(sentencesArrayBeginning, mapNow, sentencesArrayMiddle, arrayWeapons));
         }
@@ -131,7 +115,7 @@ const Sentences = forwardRef((props, ref) => {
 
     const sentenceStandard = () => {
         sentenceSimple();
-        setClickStandard(clickStandard + 1);
+        clickStandard = clickStandard + 1;
         if(!lockedStandard){            
             setSentenceStandardNow(SentencesSVC.createSentenceStandardNow(sentencesArrayStandardArmures,sentencesArrayStandardCasque));
         }
@@ -139,7 +123,7 @@ const Sentences = forwardRef((props, ref) => {
 
     const sentenceDifficile = () => {
         sentenceStandard();
-        setClickDifficile(clickDifficile + 1);
+        clickDifficile = clickDifficile + 1;
         if(!lockedDifficile){
             setSentenceNowDifficile(SentencesSVC.createSentenceDifficileNow(sentencesArrayDifficile));
         }
@@ -148,7 +132,7 @@ const Sentences = forwardRef((props, ref) => {
     const sentenceHardcore = () => {
         sentenceDifficile();   
         let arrayMapsHardcore;
-        setClickHardcore(clickHardcore + 1);  
+        clickHardcore = clickHardcore + 1;
         if(!lockedSimple){
             switch(mapNow){
                 case "Douanes":                     
