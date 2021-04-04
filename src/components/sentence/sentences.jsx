@@ -18,6 +18,7 @@ import cadenasOpen from '../../asset/cadenasopen.png';
 import cadenasClose from '../../asset/cadenas.png';
 
 import backgroundSVC from '../../services/backgroundSVC.js'
+import SentencesSVC from '../../services/sentencesSVC.js'
 
 
 
@@ -39,11 +40,11 @@ const Sentences = forwardRef((props, ref) => {
     //TODO faire une phrase en français plus mieux !!! 
     const ALTERATIONDEFI = "Fais - 1 à ta classe d'armure et - 1 à ta classe de casque";
 
-    let [sentencesArrayBeginning, setSentencesArrayBeginning] = useState([]);
-    let [sentencesArrayMiddle, setSentencesArrayMiddle] = useState([]);
-    let [sentencesArrayStandardArmures, setSentencesArrayStandardArmures] = useState([]);
-    let [sentencesArrayStandardCasque, setSentencesArrayStandardCasque] = useState([]);
-    let [sentencesArrayDifficile, setSentencesArrayDifficile] = useState([]);
+    let sentencesArrayBeginning = sentences.debut;
+    let sentencesArrayMiddle = sentences.middle;
+    let sentencesArrayDifficile = sentences.difficile
+    let sentencesArrayStandardArmures = sentences.standardArmures;
+    let sentencesArrayStandardCasque = sentences.standardCasque;
     
     let [sentencesArrayHardcoreDouanes, setSentencesArrayHardcoreDouanes] = useState([]);
     let [sentencesArrayHardcoreBois, setSentencesArrayHardcoreBois] = useState([]);
@@ -74,12 +75,7 @@ const Sentences = forwardRef((props, ref) => {
     useEffect(() => initialize(),[]);
     useEffect(() => initializeDefi(), []);
 
-    const initialize = () => {
-        setSentencesArrayBeginning(sentences.debut);
-        setSentencesArrayMiddle(sentences.middle);
-        setSentencesArrayStandardArmures(sentences.standardArmures);
-        setSentencesArrayStandardCasque(sentences.standardCasque);
-        setSentencesArrayDifficile(sentences.difficile);        
+    const initialize = () => {      
         setArrayWeapons(armes.armes);
         setArrayMaps(maps.maps);
         setSentenceSimpleNow();
@@ -104,6 +100,8 @@ const Sentences = forwardRef((props, ref) => {
     }
 
     const createSentence = () => {
+        mapNow = arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom;
+        changeBackground(mapNow);
         chooseSentence();
     }
 
@@ -127,7 +125,7 @@ const Sentences = forwardRef((props, ref) => {
     const sentenceSimple = () => {
         setClickSimple(clickSimple + 1);
         if(!lockedSimple){
-            setSentenceSimpleNow(createSentenceSimpleNow());
+            setSentenceSimpleNow(SentencesSVC.createSentenceSimpleNow(sentencesArrayBeginning, mapNow, sentencesArrayMiddle, arrayWeapons));
         }
     }
 
@@ -135,7 +133,7 @@ const Sentences = forwardRef((props, ref) => {
         sentenceSimple();
         setClickStandard(clickStandard + 1);
         if(!lockedStandard){            
-            setSentenceStandardNow(createSentenceStandardNow());
+            setSentenceStandardNow(SentencesSVC.createSentenceStandardNow(sentencesArrayStandardArmures,sentencesArrayStandardCasque));
         }
     }
 
@@ -143,63 +141,44 @@ const Sentences = forwardRef((props, ref) => {
         sentenceStandard();
         setClickDifficile(clickDifficile + 1);
         if(!lockedDifficile){
-            setSentenceNowDifficile(createSentenceDifficileNow());
+            setSentenceNowDifficile(SentencesSVC.createSentenceDifficileNow(sentencesArrayDifficile));
         }
     }
 
     const sentenceHardcore = () => {
         sentenceDifficile();   
-        let arrayMapeu;
+        let arrayMapsHardcore;
         setClickHardcore(clickHardcore + 1);  
         if(!lockedSimple){
             switch(mapNow){
                 case "Douanes":                     
-                    arrayMapeu = sentencesArrayHardcoreDouanes;                  
+                    arrayMapsHardcore = sentencesArrayHardcoreDouanes;                  
                     break;
                 case "Bois": 
-                    arrayMapeu = sentencesArrayHardcoreBois; 
+                    arrayMapsHardcore = sentencesArrayHardcoreBois; 
                     break;
                 case "Labs":   
-                    arrayMapeu = sentencesArrayHardcoreLabs;              
+                    arrayMapsHardcore = sentencesArrayHardcoreLabs;              
                     break;
                 case "Base militaire":   
-                    arrayMapeu = sentencesArrayHardcoreBaseMilitaire;                 
+                    arrayMapsHardcore = sentencesArrayHardcoreBaseMilitaire;                 
                     break;
                 case "Littoral": 
-                    arrayMapeu = sentencesArrayHardcoreLittoral;                       
+                    arrayMapsHardcore = sentencesArrayHardcoreLittoral;                       
                     break;
                 case "Usine": 
-                    arrayMapeu = sentencesArrayHardcoreUsine;                       
+                    arrayMapsHardcore = sentencesArrayHardcoreUsine;                       
                     break;
                 case "Echangeur": 
-                    arrayMapeu = sentencesArrayHardcoreEchangeur;                        
+                    arrayMapsHardcore = sentencesArrayHardcoreEchangeur;                        
                     break;
                 default:
                     setSentenceNowHardcore("");
                     break;
             }
-            setSentenceNowHardcore(arrayMapeu[Math.floor(Math.random() * arrayMapeu.length)].phrase);                           
+            setSentenceNowHardcore(SentencesSVC.createSentenceHardcoreNow(arrayMapsHardcore));                           
         }
         
-    }
-
-    const createSentenceSimpleNow = () => {    
-        mapNow = arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom;
-        changeBackground(mapNow); 
-        return sentencesArrayBeginning[Math.floor(Math.random() * sentencesArrayBeginning.length)].phrase +
-        mapNow +
-        sentencesArrayMiddle[Math.floor(Math.random() * sentencesArrayMiddle.length)].phrase +
-        arrayWeapons[Math.floor(Math.random() * arrayWeapons.length)].nom;
-    }
-
-    const createSentenceStandardNow = () => {
-        return sentencesArrayStandardArmures[Math.floor(Math.random() * sentencesArrayStandardArmures.length)].phrase +
-        sentencesArrayStandardCasque[Math.floor(Math.random() *  sentencesArrayStandardCasque.length)].phrase
-       
-    }
-
-    const createSentenceDifficileNow = () => {
-        return sentencesArrayDifficile[Math.floor(Math.random() * sentencesArrayDifficile.length)].phrase;
     }
 
     const findSentenceSimple = () => {  
@@ -268,7 +247,6 @@ const Sentences = forwardRef((props, ref) => {
             return <img className="cadenas-difficile" src={lockedDifficile && clickDifficile > 0 ? cadenasClose : cadenasOpen} alt="Logo" onClick={changeLock.bind(this)}/>
         }
     }
-
 
     const findSentenceSimpleValue = findSentenceSimple();
 
