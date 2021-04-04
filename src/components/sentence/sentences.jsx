@@ -103,7 +103,6 @@ const Sentences = forwardRef((props, ref) => {
                 console.log("ERREUR");
                 break;
         }
-
     }
     
     const sentenceSimple = () => {
@@ -161,8 +160,7 @@ const Sentences = forwardRef((props, ref) => {
                     break;
             }
             setSentenceNowHardcore(SentencesSVC.createSentenceHardcoreNow(arrayMapsHardcore));                           
-        }
-        
+        }        
     }
 
     const findSentenceSimple = () => {  
