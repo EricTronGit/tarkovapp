@@ -1,0 +1,93 @@
+{
+    "debut": [
+        {
+            "phrase" : "Go to "
+        }
+    ],
+    "middle": [
+        {
+            "phrase" : " with  "
+        }
+    ],
+    "standardArmures": [
+        {
+            "phrase" : "Wear class 6 armor "
+        },
+        {
+            "phrase" : "Wear class 5 armor "
+        },
+        {
+            "phrase" : "Wear class 4 armor "
+        },
+        {
+            "phrase" : "Wear class 3 armor "
+        },
+        {
+            "phrase" : "Wear class 2 armor "
+        },
+        {
+            "phrase" : "Wear class 1 armor "
+        }
+    ],
+    "standardCasque": [
+        {
+            "phrase" : "and class 1 helmet"
+        },
+        {
+            "phrase" :  "and class 2 helmet"
+        },
+        {
+            "phrase" :  "and class 3 helmet"
+        },
+        {
+            "phrase" :  "and class 4 helmet"
+        },
+        {
+            "phrase" :  "and class 5 helmet"
+        },
+        {
+            "phrase" :  "and class 6 helmet"
+        }
+    ],
+    "difficile" : [
+        {
+            "phrase" : "Kill 3 PMCs"
+        },
+        {
+            "phrase" : "Kill 2 PMCs"
+        },
+        {
+            "phrase" : "Kill 1 PMCs in the leg"
+        },
+        {
+            "phrase" : "Kill 1 PMCs in the head"
+        },
+        {
+            "phrase" : "Kill 1 PMCs over 100 meters"
+        },
+        {
+            "phrase" : "Kill 1 PMCs over 100 meters"
+        },        
+        {
+            "phrase" : "Don't use sight"
+        },
+        {
+            "phrase" : "Don't use headset"
+        },
+        {
+            "phrase" : "Use GSSH-01"
+        },
+        {
+            "phrase" : "Use a face shield if the helmet allow it"
+        },
+        {
+            "phrase" : "Kill 5 scavs in 5 minutes"
+        },
+        {
+            "phrase" : "Kill 3 scavs in the leg"
+        },
+        {
+            "phrase" : "Kill a blind PMC"
+        }
+    ]
+}

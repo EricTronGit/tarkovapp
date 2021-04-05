@@ -1,8 +1,8 @@
 import './sentences.css';
 import armes from "../../jsonfiles/armes.json"
-import sentences from "../../jsonfiles/sentences.json"
-import maps from "../../jsonfiles/maps.json"
-import hardcore from "../../jsonfiles/hardcore.json"
+import hardcoreFrench from "../../jsonfiles/hardcore.json"
+import hardcoreEnglish from "../../jsonfiles/hardcoreEnglish.json"
+
 import React, {
     useEffect
 } from 'react';
@@ -40,22 +40,7 @@ const Sentences = forwardRef((props, ref) => {
     //TODO faire une phrase en français plus mieux !!! 
     const ALTERATIONDEFI = "Fais - 1 à ta classe d'armure et - 1 à ta classe de casque";
 
-    let sentencesArrayBeginning = sentences.debut;
-    let sentencesArrayMiddle = sentences.middle;
-    let sentencesArrayDifficile = sentences.difficile
-    let sentencesArrayStandardArmures = sentences.standardArmures;
-    let sentencesArrayStandardCasque = sentences.standardCasque;
-
-    let arrayWeapons = armes.armes;
-    let arrayMaps = maps.maps;
-
-    let sentencesArrayHardcoreDouanes = hardcore.douanes;
-    let sentencesArrayHardcoreBois = hardcore.bois;
-    let sentencesArrayHardcoreEchangeur = hardcore.echangeur;
-    let sentencesArrayHardcoreLittoral = hardcore.littoral;
-    let sentencesArrayHardcoreLabs = hardcore.labs;
-    let sentencesArrayHardcoreUsine = hardcore.usine;
-    let sentencesArrayHardcoreBaseMilitaire = hardcore.basemilitaire;
+    let [appLangage, setAppLangage] = useState(props.langage); 
 
     let [clickSimple, setClickSimple] = useState(0);
     let [clickStandard, setClickStandard] = useState(0);
@@ -73,8 +58,12 @@ const Sentences = forwardRef((props, ref) => {
     let [lockedHardcore, setLockedHardcore] = useState(false);
     
     useEffect(() => initialize(),[]);
+    
+    useEffect(() => {
+        setAppLangage(props.langageSelect()); 
+    });
 
-    const initialize = () => {      
+    const initialize = () => {   
         setSentenceSimpleNow();
     }  
 
@@ -87,7 +76,7 @@ const Sentences = forwardRef((props, ref) => {
     }
 
     const createSentence = () => {
-        mapNow = arrayMaps[Math.floor(Math.random() * arrayMaps.length)].nom;
+        mapNow = SentencesSVC.createMapNow(appLangage);
         changeBackground(mapNow);
         chooseSentence();
     }
@@ -112,7 +101,7 @@ const Sentences = forwardRef((props, ref) => {
     const sentenceSimple = () => {
         setClickSimple(clickSimple + 1);
         if(!lockedSimple){
-            setSentenceSimpleNow(SentencesSVC.createSentenceSimpleNow(sentencesArrayBeginning, mapNow, sentencesArrayMiddle, arrayWeapons));
+            setSentenceSimpleNow(SentencesSVC.createSentenceSimpleNow(mapNow, appLangage));
         }
     }
 
@@ -120,7 +109,7 @@ const Sentences = forwardRef((props, ref) => {
         sentenceSimple();
         setClickStandard(clickStandard + 1);
         if(!lockedStandard){            
-            setSentenceStandardNow(SentencesSVC.createSentenceStandardNow(sentencesArrayStandardArmures,sentencesArrayStandardCasque));
+            setSentenceStandardNow(SentencesSVC.createSentenceStandardNow(appLangage));
         }
     }
 
@@ -128,42 +117,44 @@ const Sentences = forwardRef((props, ref) => {
         sentenceStandard();
         setClickDifficile(clickDifficile + 1);
         if(!lockedDifficile){
-            setSentenceNowDifficile(SentencesSVC.createSentenceDifficileNow(sentencesArrayDifficile));
+            setSentenceNowDifficile(SentencesSVC.createSentenceDifficileNow(appLangage));
         }
     }
 
     const sentenceHardcore = () => {
         sentenceDifficile();   
         let arrayMapsHardcore;
+        let arrayHardcore; 
         setClickHardcore(clickHardcore + 1);  
+        if(appLangage === "FR"){
+            arrayHardcore = hardcoreFrench;
+        } else {
+            arrayHardcore = hardcoreEnglish;
+        }
         if(!lockedSimple){
-            switch(mapNow){
-                case "Douanes":                     
-                    arrayMapsHardcore = sentencesArrayHardcoreDouanes;                  
-                    break;
-                case "Bois": 
-                    arrayMapsHardcore = sentencesArrayHardcoreBois; 
-                    break;
-                case "Labs":   
-                    arrayMapsHardcore = sentencesArrayHardcoreLabs;              
-                    break;
-                case "Base militaire":   
-                    arrayMapsHardcore = sentencesArrayHardcoreBaseMilitaire;                 
-                    break;
-                case "Littoral": 
-                    arrayMapsHardcore = sentencesArrayHardcoreLittoral;                       
-                    break;
-                case "Usine": 
-                    arrayMapsHardcore = sentencesArrayHardcoreUsine;                       
-                    break;
-                case "Echangeur": 
-                    arrayMapsHardcore = sentencesArrayHardcoreEchangeur;                        
-                    break;
-                default:
-                    setSentenceNowHardcore("");
-                    break;
-            }
-            setSentenceNowHardcore(SentencesSVC.createSentenceHardcoreNow(arrayMapsHardcore));                           
+            if(mapNow === "Bois" || mapNow === "Woods"){
+                arrayMapsHardcore = arrayHardcore.bois;   
+            } 
+            if(mapNow === "Echangeur" || mapNow === "Interchange"){
+                arrayMapsHardcore = arrayHardcore.echangeur                
+            }  
+            if(mapNow === "Labs"){
+                arrayMapsHardcore = arrayHardcore.labs;       
+            }  
+            if(mapNow === "Base militaire" || mapNow === "Reserve"){
+                arrayMapsHardcore = arrayHardcore.basemilitaire;         
+            }  
+            if(mapNow === "Douanes" || mapNow === "Customs"){
+                arrayMapsHardcore = arrayHardcore.douanes;          
+            }  
+            if(mapNow === "Littoral" || mapNow === "Shoreline"){
+                arrayMapsHardcore = arrayHardcore.littoral;   
+            }  
+            if(mapNow === "Usine" || mapNow === "Factory"){
+                arrayMapsHardcore = arrayHardcore.usine;       
+            }  
+            
+            setSentenceNowHardcore(SentencesSVC.createSentenceHardcoreNow(arrayMapsHardcore, appLangage));                           
         }
         
     }

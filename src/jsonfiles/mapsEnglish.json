@@ -1,0 +1,25 @@
+{
+    "maps": [
+        {
+            "nom" : "Interchange"
+        },
+        {
+            "nom" : "Customs"
+        },
+        {
+            "nom" : "Labs"
+        },
+        {
+            "nom" : "Reserve"
+        },
+        {
+            "nom" : "Shoreline"
+        },
+        {
+            "nom" : "Factory"
+        },
+        {
+            "nom" : "Woods"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "douanes": [
+        {
+            "phrase": "Go to dorms"
+        }
+    ],
+    "bois": [
+        {
+            "phrase": "Go to scav house"
+        }
+    ],
+    "labs": [
+        {
+            "phrase": "Go to in front of the door of the red keycard"
+        }
+    ],
+    "usine": [
+        {
+            "phrase": "Go in the office"
+        }
+    ],
+    "littoral": [
+        {
+            "phrase": "Go to Sanitar office"
+        }
+    ],
+    "basemilitaire": [
+        {
+            "phrase": "Go in the the train station"
+        }
+    ],    
+    "echangeur": [
+        {
+            "phrase": "Go to TechLight"
+        }
+    ]
+}
+

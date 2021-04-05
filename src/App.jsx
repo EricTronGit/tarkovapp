@@ -1,6 +1,8 @@
 import './App.css';
 import Sentences from './components/sentence/sentences.jsx';
 import Difficulty from './components/sentence/difficulty/difficulty.jsx';
+import TexteAppFR from './jsonfiles/texteAppFR.json';
+import TexteAppENG from './jsonfiles/texteAppEng.json';
 
 import {Col, Container, Navbar, Row, Button, Modal} from 'react-bootstrap';
 import image from './asset/EFT-challenge-white.png'
@@ -13,12 +15,15 @@ function App() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    let [texteApp, setTexteApp] = useState(TexteAppFR);
     
     const [showMention, setShowMention] = useState(false);
 
     const handleCloseMention = () => setShowMention(false);
     const handleShowMention = () => setShowMention(true);
 
+    const [appLangage, setAppLangage] = useState("FR");
 
     const [difficulty, setDifficulty] = useState("Standard");
 
@@ -26,9 +31,23 @@ function App() {
         setDifficulty(chosenDifficulty);
     }
 
+    const useFrArray = () => {
+        setAppLangage("FR");        
+        setTexteApp(TexteAppFR);
+    }
+
+    const useEngArray = () => {
+        setAppLangage("ENG");
+        setTexteApp(TexteAppENG);
+    }
+
+    const callbackLangage = (langageSelection) => {
+        return appLangage;
+    }
+
     const sentencesRef = useRef();
 
-    let sentenceComponent = (<Sentences difficulty={difficulty} ref={sentencesRef}/>);
+    let sentenceComponent = (<Sentences difficulty={difficulty} ref={sentencesRef} langageSelect={callbackLangage}/>);
 
     return (
         <div className="App">
@@ -80,6 +99,9 @@ function App() {
                                 </Modal.Footer>
                             </Modal>
                     </Navbar.Collapse>
+                    <Navbar.Collapse className="justify-content-end">
+                        <Button variant="link btn-link-custom" onClick={useFrArray}>{appLangage === "FR" ? <u>Français</u>: "Français"}</Button>/<Button variant="link btn-link-custom" onClick={useEngArray}>{appLangage === "ENG" ? <u>English</u>: "English"}</Button>
+                    </Navbar.Collapse>
                 </Navbar>
             </header>
             <Container className="pb-5 d-flex flex-column">
@@ -92,10 +114,10 @@ function App() {
                     <Container className="my-3 boxDifficultyAndLaunch">
                         <Row>
                             <Col sm={9}>
-                                <Difficulty difficultySelect={callback}/>
+                                <Difficulty difficultySelect={callback}  langageSelect={callbackLangage}/>
                             </Col>
                             <Col className="px-0">
-                                <Button variant="primary" className="btn-block btn-tarkov btn-launch" onClick={() => sentencesRef.current.rollSentence()}>LANCER</Button>
+                                <Button variant="primary" className="btn-block btn-tarkov btn-launch" onClick={() => sentencesRef.current.rollSentence()}>{appLangage === "FR" ? "LANCER": "ROLL"}</Button>
                             </Col>
                         </Row>
                     </Container>

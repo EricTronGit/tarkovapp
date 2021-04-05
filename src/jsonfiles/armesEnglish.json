@@ -1,0 +1,270 @@
+{
+    "armes": [
+        {
+            "nom": "an ADAR 2-15"
+        },
+        {
+            "nom": "an AK-101"
+        },
+        {
+            "nom": "an AK-102"
+        },
+        {
+            "nom": "an AK-103"
+        },
+        {
+            "nom": "an AK-104"
+        },
+        {
+            "nom": "an AK-105"
+        },
+        {
+            "nom": "an AK-74"
+        },
+        {
+            "nom": "an AK-74M"
+        },
+        {
+            "nom": "an AK-74N"
+        },
+        {
+            "nom": "an AKM"
+        },
+        {
+            "nom": "an AKMN"
+        },
+        {
+            "nom": "an AKMS"
+        },
+        {
+            "nom": "an AKMSN"
+        },
+        {
+            "nom": "an AKS-74"
+        },
+        {
+            "nom": "an AKS-74N"
+        },
+        {
+            "nom": "an AKS-74U"
+        },
+        {
+            "nom": "an AKS-74UB"
+        },
+        {
+            "nom": "an AKS-74UN"
+        },
+        {
+            "nom": "an ASh-12"
+        },
+        {
+            "nom": "an AS VAL"
+        },
+        {
+            "nom": "an DT MDR"
+        },
+        {
+            "nom": "an DT MDR .308"
+        },
+        {
+            "nom": "an HK 416A5"
+        },
+        {
+            "nom": "an Kel-Tec RFB"
+        },
+        {
+            "nom": "an M4A1"
+        },
+        {
+            "nom": "an MCX"
+        },
+        {
+            "nom": "an SA-58"
+        },
+        {
+            "nom": "an TX-15 DML"
+        },
+        {
+            "nom": "an Vepr AKM/VPO-209"
+        },
+        {
+            "nom": "an Vepr KM/VPO-136"
+        },
+        {
+            "nom": "an OP-SKS"
+        },
+        {
+            "nom": "an SKS"
+        },
+        {
+            "nom": "an Vepr Hunter/VPO-101"
+        },
+        {
+            "nom": "an RPK-16"
+        },
+        {
+            "nom": "an MP5"
+        },
+        {
+            "nom": "an MP5K-N"
+        },
+        {
+            "nom": "an MP7A1"
+        },
+        {
+            "nom": "an MP7A2"
+        },
+        {
+            "nom": "an MP9"
+        },
+        {
+            "nom": "an MP9-N"
+        },
+        {
+            "nom": "an MPX"
+        },
+        {
+            "nom": "an P90"
+        },
+        {
+            "nom": "an PP-19-01 Vityaz-SN"
+        },
+        {
+            "nom": "an PP-9 \"Klin\""
+        },
+        {
+            "nom": "an PP-91 \"Kedr\""
+        },
+        {
+            "nom": "an PP-91-01 \"Kedr-B\""
+        },
+        {
+            "nom": "an PPSh-41"
+        },
+        {
+            "nom": "an Saiga-9"
+        },
+        {
+            "nom": "an UMP 45"
+        },
+        {
+            "nom": "an Vector .45"
+        },
+        {
+            "nom": "an Vector 9x19"
+        },
+        {
+            "nom": "an Vector 9x19"
+        },
+        {
+            "nom": "an 590A1"
+        },
+        {
+            "nom": "an M870"
+        },
+        {
+            "nom": "an MP-133"
+        },
+        {
+            "nom": "an MP-153"
+        },
+        {
+            "nom": "an Saige-12"
+        },
+        {
+            "nom": "an TOZ-106"
+        },
+        {
+            "nom": "an KS-23M"
+        },
+        {
+            "nom": "an M1A"
+        },
+        {
+            "nom": "an MK-18"
+        },
+        {
+            "nom": "an RSASS"
+        },
+        {
+            "nom": "an SR-25"
+        },
+        {
+            "nom": "an SVDS"
+        },
+        {
+            "nom": "an VSS Vintorez"
+        },
+        {
+            "nom": "an DVL-10"
+        },
+        {
+            "nom": "an M700"
+        },
+        {
+            "nom": "an Mosin"
+        },
+        {
+            "nom": "an Mosin Inf."
+        },
+        {
+            "nom": "an SV-98"
+        },
+        {
+            "nom": "an T-5000"
+        },
+        {
+            "nom": "an VPO-215"
+        },
+        {
+            "nom": "an APB"
+        },
+        {
+            "nom": "an APS"
+        },
+        {
+            "nom": "an FN 5-7"
+        },
+        {
+            "nom": "an glock 17"
+        },
+        {
+            "nom": "an glock 18c"
+        },
+        {
+            "nom": "an M1911A1"
+        },
+        {
+            "nom": "an M45A1"
+        },
+        {
+            "nom": "an M9A3"
+        },
+        {
+            "nom": "an MP-443 \"Grach\""
+        },
+        {
+            "nom": "an P226R"
+        },
+        {
+            "nom": "an PB pistol"
+        },
+        {
+            "nom": "an PM pistol (t)"
+        },
+        {
+            "nom": "an PM pistol"
+        },
+        {
+            "nom": "an SR-1mp Gyurza"
+        },
+        {
+            "nom": "an TT pistol"
+        },
+        {
+            "nom": "an TT gold pistol"
+        }
+        
+        
+    ] 
+}

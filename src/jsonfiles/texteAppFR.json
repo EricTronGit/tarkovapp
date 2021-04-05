@@ -1,0 +1,35 @@
+{
+    "appjsx": [
+        {
+            "navAPropos" : "À Propos"
+        },
+        {
+            "navMention" : "Mentions Légales"
+        },
+        {
+            "texteModalAPropos" : "<p className=\"text-modal\">Ce site vous permet de lancer un aléatoire pour savoir avec quel équipement et quelles missions supplémentaire vous allez devoir accomplir durant votre RAID.</p><p className=\"text-modal\">Vous pouvez \"bloquer\" certaines phrases pour qu'elles ne bougent plus lors de vos prochains lancées.</p><p className=\"text-modal\">Ce site est en parti fait sur ma chaîne Twitch <a href=\"https://www.twitch.tv/erryontv\" target=\"_blank\" rel=\"noreferrer\">ErryonTV</a>. N'hésitez pas à me faire des retours ou me de me proposer des ajouts.</p><p className=\"text-modal\"><u>Un grand merci a :</u><br/><span>Ghostwake</span><br/><span>TheGetGet</span><br/><span>Razorflak</span></p> "
+        },
+        {
+            "btnFermerModal" : "Fermer"
+        },
+        {
+            "texteModalMention" : " <p className=\"text-modal\">Ce site n'est en aucuns cas en partenariat avec Battlestate Games. Il est fait par des fans pour la communauté d'Escape From Tarkov.</p><p className=\"text-modal\"><b>Tout droit reservés à Battlestate Games.</b></p><p className=\"text-modal\"><b>Ce site n'utilise pas de cookie 🍪.</b></p>"
+        }
+    ],
+    "sentencesjsx": [
+        {
+            "phrase" : " avec  "
+        },
+        {
+            "phrase" : " en t'équipant d'"
+        }
+    ],
+    "difficultyjsx": [
+        {
+            "phrase" : " avec  "
+        },
+        {
+            "phrase" : " en t'équipant d'"
+        }
+    ]
+}
