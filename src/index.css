@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
   max-width: 100%;
   background-color: #111 !important;
-  background-image: url("asset/tarkov.png");
+  background-image: url("asset/tarkovBackground.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

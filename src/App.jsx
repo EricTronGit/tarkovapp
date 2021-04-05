@@ -70,6 +70,8 @@ function App() {
                                 <Modal.Body>
                                     <p className="text-modal">Ce site n'est en aucuns cas en partenariat avec Battlestate Games. Il est fait par des fans pour la communauté d'Escape From Tarkov.</p>
                                     <p className="text-modal"><b>Tout droit reservés à Battlestate Games.</b></p>
+                                    <p className="text-modal"><b>Ce site n'utilise pas de cookie 🍪.</b></p>
+
                                 </Modal.Body>
                                 <Modal.Footer>
                                     <Button variant="secondary" onClick={handleCloseMention}>
@@ -106,7 +108,7 @@ function App() {
                     <Row>
                         <Col>
                             <p className="textFooter">Copyright
-                             <a href="https://www.twitch.tv/erryontv" target="_blank" rel="noreferrer">ErryonTV</a> version 0.1.0 BETA avec l'aide de <a href="https://github.com/francoispeyret" target="_blank" rel="noreferrer">Meeshoot</a></p>
+                             <a href="https://www.twitch.tv/erryontv" target="_blank" rel="noreferrer"> ErryonTV</a> version 0.1.0 BETA avec l'aide de <a href="https://github.com/francoispeyret" target="_blank" rel="noreferrer">Meeshoot</a></p>
                         </Col>
                     </Row>
                 </Container>

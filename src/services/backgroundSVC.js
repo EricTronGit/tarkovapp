@@ -1,10 +1,10 @@
-import LabsWallpaper from '../asset/wallpaperLabs.png';
-import WoodsWallpaper from '../asset/wallpaperwoods.png';
-import InterchangeWallpaper from '../asset/wallpaperInterchange.png';
-import CustomsWallpaper from '../asset/wallpaperCustoms.png';
-import ShorelineWallpaper from '../asset/wallpaperShoreline.png';
-import FactoryWallpaper from '../asset/wallpaperFactory.png';
-import ReserveWallpaper from '../asset/wallpaperReserve.png';
+import LabsWallpaper from '../asset/wallpaperLabs.jpg';
+import WoodsWallpaper from '../asset/wallpaperwoods.jpg';
+import InterchangeWallpaper from '../asset/wallpaperInterchange.jpg';
+import CustomsWallpaper from '../asset/wallpaperCustoms.jpg';
+import ShorelineWallpaper from '../asset/wallpaperShoreline.jpg';
+import FactoryWallpaper from '../asset/wallpaperFactory.jpg';
+import ReserveWallpaper from '../asset/wallpaperReserve.jpg';
 
 class backgroundSVC {    
 
