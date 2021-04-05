@@ -9,7 +9,11 @@ import image from './asset/EFT-challenge-white.png'
 
 import React, {useState, useRef} from 'react';
 
+
+
 function App() {
+
+   
 
     const [show, setShow] = useState(false);
 
@@ -49,6 +53,7 @@ function App() {
 
     let sentenceComponent = (<Sentences difficulty={difficulty} ref={sentencesRef} langageSelect={callbackLangage}/>);
 
+    
     return (
         <div className="App">
             <header className="App-header">
@@ -60,6 +65,7 @@ function App() {
                             <Button variant="link btn-link-custom" onClick={handleShow}>
                                 À Propos
                             </Button>
+                           
                             <Modal show={show} onHide={handleClose} animation={false}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>A Propos</Modal.Title>
@@ -97,10 +103,9 @@ function App() {
                                         Fermer
                                     </Button>
                                 </Modal.Footer>
+                                
                             </Modal>
-                    </Navbar.Collapse>
-                    <Navbar.Collapse className="justify-content-end">
-                        <Button variant="link btn-link-custom" onClick={useFrArray}>{appLangage === "FR" ? <u>Français</u>: "Français"}</Button>/<Button variant="link btn-link-custom" onClick={useEngArray}>{appLangage === "ENG" ? <u>English</u>: "English"}</Button>
+                            <Button variant="link btn-link-custom" onClick={useFrArray}>{appLangage === "FR" ? <u>Français</u>: "Français"}</Button>/<Button variant="link btn-link-custom" onClick={useEngArray}>{appLangage === "ENG" ? <u>English</u>: "English"}</Button>
                     </Navbar.Collapse>
                 </Navbar>
             </header>
