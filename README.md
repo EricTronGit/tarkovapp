@@ -17,3 +17,7 @@ Add the full responsive APP
 ## V 0.1.0
 
 redesign of the user interface.
+
+## V 0.1.1
+
+Add the english version of the app. 

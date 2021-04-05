@@ -130,7 +130,7 @@ function App() {
                     <Row>
                         <Col>
                             <p className="textFooter">Copyright
-                             <a href="https://www.twitch.tv/erryontv" target="_blank" rel="noreferrer"> ErryonTV</a> version 0.1.0 BETA avec l'aide de <a href="https://github.com/francoispeyret" target="_blank" rel="noreferrer">Meeshoot</a></p>
+                             <a href="https://www.twitch.tv/erryontv" target="_blank" rel="noreferrer"> ErryonTV</a> version 0.1.1 BETA avec l'aide de <a href="https://github.com/francoispeyret" target="_blank" rel="noreferrer">Meeshoot</a></p>
                         </Col>
                     </Row>
                 </Container>

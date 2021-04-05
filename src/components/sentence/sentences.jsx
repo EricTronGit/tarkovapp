@@ -1,5 +1,4 @@
 import './sentences.css';
-import armes from "../../jsonfiles/armes.json"
 import hardcoreFrench from "../../jsonfiles/hardcore.json"
 import hardcoreEnglish from "../../jsonfiles/hardcoreEnglish.json"
 
