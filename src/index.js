@@ -5,11 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ReactGA from 'react-ga';
-
-const TRACKING_ID = "G-ZD5CGPN9V9"; // YOUR_OWN_TRACKING_ID
-ReactGA.initialize(TRACKING_ID);
-ReactGA.pageview(window.location.pathname);
 
 ReactDOM.render(
   <React.StrictMode>

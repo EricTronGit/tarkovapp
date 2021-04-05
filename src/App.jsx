@@ -13,8 +13,6 @@ import React, {useState, useRef} from 'react';
 
 function App() {
 
-   
-
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
